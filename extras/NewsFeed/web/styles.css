@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin: 0;
+	background: #FFF url(images/header-background.jpg) repeat-x;
+}
+
+body[orient="portrait"] {
+	font-size: 15px;
+}
+
+body[orient="landscape"] {
+	font-size: 18px;
+}
+
+body.home {
+	background: none #fff;
+}
+
+div#container {
+	max-width: 480px;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 1.6em;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 5px 10px;
+}
+
+h2, h3, h4, h5 {
+	font-family: Helvetica Neue, Helvetica, 'Lucida Sans Unicode', Lucida Grande, Arial, sans-serif;	
+}
+
+h2, h3 {
+	margin: 0 0 0 10px;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 1.3em;
+	margin-top: 20px;
+	color: #666;	
+}
+
+h4 {
+	font-size: .9em;
+	color: #999;
+	font-weight: bold;
+	margin: 0 10px;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-style: italic;
+	font-weight: normal;	
+	font-size: 1.2em;
+	color: #333;
+}
+
+p {
+	font-size: 1em;
+	line-height: 1.35em;
+	letter-spacing: -5;
+	margin: 15px;
+}
+
+div#header {
+	width: 100%;
+	height: 61px;
+	margin: 0 0 15px 0;
+}
+
+div#header img.logo {
+	border: 0;
+	margin: 16px 12px 15px 8px;
+}
+
+div#header img.menu {
+	margin: 10px 0 7px 0;
+}
+
+div#header h4 {
+	display: inline;
+	margin: 32px 10px 10px 0;
+	float: right;
+	color: #CCC;
+}
+
+/*
+div#content{
+	max-width: 480px;
+}
+*/
+
+/* HOME SCREEN STYLES */
+
+div#menu {
+	text-align: center;	
+}
+
+img.home-logo {
+	border: none;
+	width: 200px;
+	height: 30px;
+	margin: 10px auto 0 auto;
+}
+
+div#menu h5 {
+	margin: 10px 0 15px 0;
+}
+
+a.header {
+	border: none;
+	width: 320px;
+	height: 82px;
+	display: block;
+	margin: 0 auto 10px auto;
+	border: 0;	
+}
+
+a.header.snack {
+	background: url(images/home-button-snack-regular.png) no-repeat;
+}
+
+/* a:hover.header.snack {
+	background: url(images/home-button-snack-onclick.png) no-repeat;
+}
+*/
+a.header.fastfood {
+	background: url(images/home-button-fastfood-regular.png) no-repeat;
+}
+
+/* a:hover.header.fastfood {
+	background: url(images/home-button-fastfood-onclick.png) no-repeat;
+} */
+
+a.header.fullmeal {
+	background: url(images/home-button-fullmeal-regular.png) no-repeat;
+}
+
+/* a:hover.header.fullmeal {
+	background: url(images/home-button-fullmeal-onclick.png) no-repeat;
+} */
+
+/* Interstitial pages */
+#sorbet {
+    font-size: 1.25em;
+}
+
+#sorbet ul li {
+    margin: 5px 0;  
+} 
+
+#sorbet h4 {
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+#interstitial h2 {
+    margin-bottom: 40px;
+}
+
+/* Navigation */
+
+div#button a {
+	border: none;
+	width: 72px;
+	height: 42px;
+	display: block;
+	float: left;
+}
+
+div#button a.back {
+	background: url(images/button-back-regular.png) no-repeat;
+	margin: 0 10px;
+}
+
+div#button a:hover.back {
+	background: url(images/button-back-onclick.png) no-repeat;
+	margin: 0 10px;
+}
+
+div#button a.next {
+	background: url(images/button-next-regular.png) no-repeat;
+}
+
+div#button a:hover.next {
+	background: url(images/button-next-onclick.png) no-repeat;
+}

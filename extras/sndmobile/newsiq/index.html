@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>News IQ</title>
+<style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+<style type="text/css" media="screen">@import "themes/skinable/theme.css";</style>
+<style type="text/css" media="screen">@import "extensions/jqt.bars/jqt.bars.css";</style>
+<style type="text/css" media="screen">@import "extensions/jqt.bars/themes/skinable/theme.css";</style>
+<style type="text/css" media="screen">@import "extensions/jqt.listIndex/jqt.listIndex.css";</style>
+<script src="jqtouch/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="extensions/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="extensions/jqt.bars/jqt.bars.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="extensions/jqt.listIndex/jqt.listIndex.js" type="application/x-javascript" charset="utf-8"></script>
+<style type="text/css" media="screen">
+#jqt.fullscreen #ui .info,
+#jqt.fullscreen #plastic .info {
+  display:none;
+}
+#jqt #about {
+  font-size:13px;
+  text-align:center;
+  text-shadow:rgba(255, 255, 255, 0.3) 0 -1px 0;
+}
+#jqt #about p {
+  margin-bottom:8px;
+}
+#jqt #about > div > div > p > a, h2 {
+  color:inherit;
+  font-weight:700;
+  text-decoration:none;
+}
+</style>
+<script type="text/javascript" charset="utf-8">
+var jQT = new $.jQTouch({
+  icon: 'jqtouch.png',
+  icon4: 'jqtouch4.png',
+  addGlossToIcon: false,
+  slideleftSelector: '#jqt ul > li > a, #jqt ol > li > a',
+  startupScreen: 'jqt_startup.png',
+  statusBar: 'black',
+  preloadImages: [
+    'themes/skinable/img/activeButton.png',	 	
+    'themes/skinable/img/back_button.png',
+    'themes/skinable/img/back_button_clicked.png',
+    'themes/skinable/img/blueButton.png',
+    'themes/skinable/img/button.png',
+    'themes/skinable/img/button_clicked.png',
+    'themes/skinable/img/grayButton.png',
+    'themes/skinable/img/greenButton.png',
+    'themes/skinable/img/redButton.png',
+    'themes/skinable/img/whiteButton.png',
+    'themes/skinable/img/loading.gif',
+    'bar_img/ajax.png',
+    'bar_img/animation.png',
+    'bar_img/demos.png',
+    'bar_img/events.png',
+    'bar_img/extensions.png',
+    'bar_img/iphone.png',
+    'bar_img/jqt.png',
+    'bar_img/video.png',
+    'bar_img/ajax@2x.png',
+    'bar_img/animation@2x.png',
+    'bar_img/demos@2x.png',
+    'bar_img/events@2x.png',
+    'bar_img/extensions@2x.png',
+    'bar_img/iphone@2x.png',
+    'bar_img/jqt@2x.png',
+    'bar_img/video@2x.png'
+  ],
+  useFastTouch: true
+});
+// Some sample Javascript functions:
+$(function(){
+// Show a swipe event on swipe test
+  $('#swipeme').swipe(function(evt, data){
+    $(this).html('You swiped <strong>' + data.direction + '/' + data.deltaX + ':' + data.deltaY + '</strong>!');
+    $(this).parent().after('<li>swiped!</li>')
+//iScroll integration
+    jQT.setPageHeight();
+  });
+  $('#tapme').tap(function(){
+    $(this).parent().after('<li>tapped!</li>');
+//iScroll integration
+    jQT.setPageHeight();
+  })
+  $('a[target="_blank"]').click(function(){
+    if(confirm('This link opens in a new window.')){
+      return true;
+    } else {
+      return false;
+    }
+  });
+// Page animation callback events
+  $('#pageevents').
+  bind('pageAnimationStart', function(e, info){
+    $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+  }).
+  bind('pageAnimationEnd', function(e, info){
+    $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+  });
+// Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+  $('#callback').bind('pageAnimationEnd', function(e, info){
+// Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+    if(!$(this).data('loaded')){
+// Append a placeholder in case the remote HTML takes its sweet time making it back
+// Then, overwrite the "Loading" placeholder text with the remote HTML
+      $(this).append($('<div>Loading</div>').load('ajax.html .info', function(){
+// Set the 'loaded' var to true so we know not to reload
+// the HTML next time the #callback div animation ends
+        $(this).parent().data('loaded', true);
+      }));
+    }
+  });
+// Orientation callback event
+  $('#jqt').bind('turn', function(e, data){
+    $('#orient').html('Orientation: ' + data.orientation);
+  });
+
+  $('#play_movie').bind('tap', function(){
+    $('#movie').get(0).play();
+    $(this).removeClass('active');
+  });
+
+  $('#video').bind('pageAnimationStart', function(e, info){
+    $('#movie').css('display', 'none');
+  }).bind('pageAnimationEnd', function(e, info){
+    if(info.direction == 'in'){
+      $('#movie').css('display', 'block');
+    }
+  })
+});
+
+</script>
+</head>
+<body>
+
+<!-- tabbar -->
+<div id="tabbar">
+	<div>
+    <ul>
+      <li>
+        <a href="#home" mask="bar_img/jqt.png" mask2x="bar_img/jqt@2x.png" animation="slideup">
+          <strong>home</strong>
+        </a>
+      </li>
+      <li>
+        <a href="#badges" mask="bar_img/demos.png" mask2x="bar_img/demos@2x.png">
+          <strong>badges</strong>
+        </a>
+      </li>
+      <li>
+        <a href="#top scores" mask="bar_img/animation.png" mask2x="bar_img/animation@2x.png">
+          <strong>top scores</strong>
+          <small class="badge right">8</small>
+        </a>
+      </li>
+      <li>
+        <a href="#friends" mask="bar_img/extensions.png" mask2x="bar_img/extensions@2x.png">
+          <strong>friends</strong>
+          <small class="badge right">9</small>
+        </a>
+      </li>
+     <li>
+        <a href="#more" mask="bar_img/events.png" mask2x="bar_img/events@2x.png">
+          <strong>more</strong>
+          <small class="badge right">4</small>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--
+<div id="tabbar">
+	<div id="tabbar-pane">
+    <table>
+      <tr>
+        <td>
+          <a href="#home" mask="bar_img/jqt.png" mask2x="bar_img/jqt.png" animation="slideup">
+            <strong>home</strong>
+          </a>
+        </td>
+        <td>
+          <a href="#ui" mask="bar_img/iphone.png" mask2x="bar_img/iphone@2x.png">
+            <strong>UI Demos</strong>
+            <small class="badge right">5</small>
+          </a>
+        </td>
+        <td>
+          <a href="#animations" mask="bar_img/animation.png" mask2x="bar_img/animation@2x.png">
+            <strong>Animations</strong>
+            <small class="badge right">8</small>
+          </a>
+        </td>
+        <td>
+          <a href="#ajax" mask="bar_img/ajax.png" mask2x="bar_img/ajax@2x.png">
+            <strong>AJAX</strong>
+            <small class="badge right">4</small>
+          </a>
+        </td>
+        <td>
+          <a href="#callbacks" mask="bar_img/events.png" mask2x="bar_img/events@2x.png">
+            <strong>Events</strong>
+            <small class="badge right">4</small>
+          </a>
+        </td>
+        <td>
+          <a href="#extensions" mask="bar_img/extensions.png" mask2x="bar_img/extensions@2x.png">
+            <strong>Extensions</strong>
+            <small class="badge right">9</small>
+          </a>
+        </td>
+        <td>
+          <a href="#video" mask="bar_img/video.png" mask2x="bar_img/video@2x.png">
+            <strong>Videos</strong>
+            <small class="badge right">1</small>
+          </a>
+        </td>
+        <td>
+          <a href="#demos" mask="bar_img/demos.png" mask2x="bar_img/demos@2x.png">
+            <strong>Demos</strong>
+            <small class="badge right">2</small>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+-->
+
+    <div id="jqt">
+	
+	        <div id="home" class="current">
+                <div class="toolbar">
+                    <h1>NewsIQ</h1>
+                    <a class="button flip" id="infoButton" href="#about">About</a>
+                </div>
+				<h2>What's your NewsIQ?</h2>
+				<p id="intro"><em>Do you know your news?</em> NewsIQ quizzes change every day to test you on events close to home -- and around the world. If you rock a test, join the newsroom leaderboard or challenge a friend to beat your score and time.</p>
+                <ul class="rounded">
+                    <li class="arrow"><a href="#sports">Sports</a></li>
+                    <li class="arrow"><a href="#minnesota">Minnesota NewsIQ</a></li>
+               		<li class="arrow"><a href="#hotzone">The hot zone</a></li>
+                    <li class="arrow"><a href="#map">Where in the world?</a></li>
+                    <li class="arrow"><a href="#video">Who said it?</a></li>
+                </ul>
+                <div class="info">
+                    <p>Add this page to your home screen to view the custom icon, startup screen, and full screen mode.</p>
+                </div>
+            </div>
+	
+            <div id="about">
+                    <p><img style="width:100%;" src="media/cube.jpg" /></p>
+                    <p id="aboutinfo">NewsIQ tests your knowledge of current events, with new quizzes every day. After you play, you can challenge friends to beat your score, earn badges and join the newsroom leaderboard to see how you rate, too.</p>
+                    <p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
+            </div>
+
+            <div id="cast">
+                <div class="toolbar">
+                    <h1>Cast</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+                <ul class="edgetoedge">
+                    <li class="sep">B</li>
+                    <li><a href="#">Barr, <em>Douglas</em></a></li>
+                    <li class="sep">M</li>
+                    <li><a href="#">Majors, <em>Lee</em></a></li>
+                    <li class="sep">T</li>
+                    <li><a href="#">Thomas, <em>Heather</em></a></li>
+                </ul>
+            </div>
+
+           <div id="sports">
+                <div class="toolbar">
+                    <h1>Sports</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+				<h2>The Minnesota Twins have had an up-and-down start to season. After playing the BlueJays, the Yankees and the Oakland A's, what is the team's record?</h2>
+				
+                <ul class="rounded">
+                    <li><a href="#">2-7</a></li>
+                    <li><a href="#">3-6</a></li>
+               		<li><a href="#">4-5</a></li>
+                    <li><a href="#">5-4</a></li>
+                    <li><a href="#">6-3</a></li>
+                </ul>
+           
+           <h2> Photo galleries: </h2>
+           <ul class="rounded"> 
+           <li class="forward"> <a href="http://www.startribune.com/sports/twins/galleries/119489599.html" target="_blank"> Twins hope opener</a></li>
+           </ul>
+           
+           
+            </div>
+            
+            
+
+            <div id="minnesota">
+                <div class="toolbar">
+                    <h1>MinnIQ</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+				<h2>Which river is threatening to overrun its banks in Minnestoa this weekend?</h2>
+                <ul class="rounded">
+                    <li><a href="#">Mississippi</a></li>
+                    <li><a href="#">Minnesota</a></li>
+               		<li><a href="#">Red</a></li>
+                    <li><a href="#">St. Croix</a></li>
+                    <li><a href="#">Cannon</a></li>
+                </ul>
+                
+                <p id="intro">See photos of flood preparation at <a href="http://www.startribune.com/galleries">startribune.com/galleries.</a></p>
+            </div>
+
+  	<div id="hotzone">
+                <div class="toolbar">
+                    <h1>Hot zone</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+				<h2>Which Middle East country erupted in deadly violence this week between govenrment forces and pro-democracy protestors?</h2>
+				
+                <ul class="rounded">
+                    <li><a href="#">Bahrain</a></li>
+                    <li><a href="#">Egypt</a></li>
+               		<li><a href="#">Yemen</a></li>
+                    <li><a href="#">Syria</a></li>
+                    <li><a href="#">All of the above</a></li>
+                </ul>
+         
+         <p id="intro">See photos at <a href="http://www.startribune.com/galleries">startribune.com/galleries.</a></p>
+         
+            </div>
+            
+            
+            
+            <div id="map">
+                <div class="toolbar">
+                    <h1>Where is it?</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+				
+ 		 		<h2>Drug violence flared once again in which country Saturday, killing 3 police officers.</h2>
+                
+    			<h2><img style="width:100%;" src="media/mexico.jpg" /></h2>
+                
+                <ul class="rounded">
+                    <li><a href="#">Colombia</a></li>
+                    <li><a href="#">Mexico</a></li>
+               		<li><a href="#">Nicaragua</a></li>
+                    <li><a href="#">Peru</a></li>
+                </ul>
+         
+         <p id="intro">See photos of the clashes at <a href="http://www.startribune.com/galleries">startribune.com/galleries.</a></p>
+         
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            <div id="video">
+                <div class="toolbar">
+                    <h1>Who said it?</h1>
+                    <a class="back" href="#">Home</a>
+            
+            
+            
+            
+                  
+            
+                </div>
+              
+                
+                
+                <a href="#" style="margin: 10px;" id="play_movie" class="whiteButton">Play Movie</a>
+            </div>
+
+        </div>
+    </body>
+</body>
+</html>

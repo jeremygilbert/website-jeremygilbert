@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>SND Mobile Design &beta;</title>
+        <style type="text/css" media="screen">@import "jqtouch/jqtouch.min.css";</style>
+        <style type="text/css" media="screen">@import "themes/jqt/theme.min.css";</style>
+        <script src="jqtouch/jquery.1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jqtouch/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    'themes/jqt/img/back_button.png',
+                    'themes/jqt/img/back_button_clicked.png',
+                    'themes/jqt/img/button_clicked.png',
+                    'themes/jqt/img/grayButton.png',
+                    'themes/jqt/img/whiteButton.png',
+                    'themes/jqt/img/loading.gif'
+                    ]
+            });
+            // Some sample Javascript functions:
+            $(function(){
+                // Show a swipe event on swipe test
+                $('#swipeme').swipe(function(evt, data) {                
+                    $(this).html('You swiped <strong>' + data.direction + '</strong>!');
+                });
+                $('a[target="_blank"]').click(function() {
+                    if (confirm('This link opens in a new window.')) {
+                        return true;
+                    } else {
+                        $(this).removeClass('active');
+                        return false;
+                    }
+                });
+                // Page animation callback events
+                $('#pageevents').
+                    bind('pageAnimationStart', function(e, info){ 
+                        $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+                    }).
+                    bind('pageAnimationEnd', function(e, info){
+                        $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+                    });
+                // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+                $('#callback').bind('pageAnimationEnd', function(e, info){
+                    if (!$(this).data('loaded')) {                      // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+                        $(this).append($('<div>Loading</div>').         // Append a placeholder in case the remote HTML takes its sweet time making it back
+                            load('ajax.html .info', function() {        // Overwrite the "Loading" placeholder text with the remote HTML
+                                $(this).parent().data('loaded', true);  // Set the 'loaded' var to true so we know not to re-load the HTML next time the #callback div animation ends
+                            }));
+                    }
+                });
+                // Orientation callback event
+                $('body').bind('turn', function(e, data){
+                    $('#orient').html('Orientation: ' + data.orientation);
+                });
+            });
+        </script>
+        <style type="text/css" media="screen">
+            body.fullscreen #home .info {
+                display: none;
+            }
+            #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            #about p {
+                margin-bottom: 8px;
+            }
+            #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="about" class="selectable">
+                <p><img src="jqtouch.png" /></p>
+                <p><strong>SND</strong><br />Mobile Design Workshop App<br />
+                    By <a href="http://www.jeremygilbert.com">Jeremy Gilbert</a> and <a href="http://www.davestanton.us">Dave Stanton</a></p>
+                <p><em>    You’ve just started to feel comfortable with web design but suddenly only mobile matters. Don’t fret you’re not too late to embrace this next wave of skills and technology. In this two-day course we’ll explore what is known about mobile usability and teach you the some techniques for creating mobile- friendly tools.</em></p>
+                <p>
+                    <a href="http://twitter.com/jeremygilbert" target="_blank">@jeremygilbert</a> and <a href="http://twitter.com/jeremygilbert" target="_blank">@gotoplanb</a> on Twitter
+                </p>
+                <p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
+        </div>
+
+        <div id="participants">
+            <div class="toolbar">
+                <h1>Participants</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+            <ul class="plastic">
+                <li class="sep">C</li>
+                <li><a href="#">Chow, <em>Emily</em></a></li>
+                <li><a href="#">Cornish, <em>Mandy</em></a></li>
+                <li class="sep">M</li>
+                <li><a href="#">Marlatt, <em>W. Kenney</em></a></li>
+                <li class="sep">R</li>
+                <li><a href="#">Rice, <em>Mike</em></a></li>
+                <li class="sep">S</li>
+                <li><a href="#">Soppe, <em>Taylor</em></a></li>
+            </ul>
+        </div>
+
+        <div id="schedule">
+            <div class="toolbar">
+                <h1>Schedule</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+            <h2>Friday</h2>
+            <ul class="plastic">
+                <li class=""><a href="#">9AM: Registration</a></li>
+                <li class=""><a href="#">9:30AM: Introductions</a></li>
+                <li class="arrow"><a href="#uiia">10AM: UI Gestures &amp; IA</a></li>
+                <li class=""><a href="#">Noon: Lunch</a></li>
+                <li class="arrow"><a href="#apps">1PM: Range of Apps</a></li>
+            </ul>
+            <h2 style="margin-top:20px;">Saturday</h2>
+            <ul class="plastic">
+                <li class=""><a href="#">9AM: Planning Your App</a></li>
+                <li class=""><a href="#">9:30AM: Starting Your App</a></li>
+                <li class=""><a href="#">Noon: Lunch</a></li>
+                <li class=""><a href="">1PM: Working on Your App</a></li>
+                <li class=""><a href="">4PM: Wrapping Up</a></li>
+            </ul>
+            <div class="info">
+                <p><strong>Best enjoyed on a real iPhone</strong></p>
+            </div>
+        </div>
+        
+        <div id="uiia">
+            <div class="toolbar">
+                <h1>UI Gestures &amp; IA</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+            <ul class="rounded">
+              <li class="forward"><a  class="forward" href="http://www.jeremygilbert.com/extras/sndmobile/11SP-SND-MobileDesign-BootCamp-Evanston.pdf" target="_blank">Download the slides</a></li>
+            </ul>
+            <div class="info">
+                <p><strong>Best enjoyed on a real iPhone</strong></p>
+            </div>
+        </div>
+
+        <div id="apps">
+            <div class="toolbar">
+                <h1>The Range of Apps</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+            <div>
+              <a href="#">Download the slides here</a>.
+            </div>
+            <div class="info">
+                <p><strong>Best enjoyed on a real iPhone</strong></p>
+            </div>
+        </div>
+
+        <div id="links">
+            <div class="toolbar">
+                <h1>UI Demos</h1>
+                <a class="back" href="#">Home</a>
+            </div>
+
+            <h2>Make Site Mobile Friendly:</h2>
+            <ul class="rounded">
+                <li class="forward"><a href="http://sublimevideo.net/" target="_blank">Sublime Video Player</a></li>
+                <li class="forward"><a href="http://jqueryui.com/" target="_blank">JQueryUI</a></li>
+                <li class="forward"><a href="http://flowplayer.org/tools/index.html" target="_blank">JQueryTools</a></li>
+                <li class="forward"><a href="http://nivo.dev7studios.com/" target="_blank">Nivo Slider</a></li>
+            </ul>
+            <h2>Media Queries</h2>
+            <ul class="rounded">
+              <li class="forward"><a href="http://mediaqueri.es/popular/" target="_blank">Media Queries Gallery</a></li>
+              <li class="forward"><a href="http://lessframework.com/" target="_blank">Less Framework</a></li>
+            </ul>
+            <h2>Mobile Frameworks</h2>
+            <ul class="rounded">
+              <li class="forward"><a href="http://jqtouch.com/" target="_blank">JQTouch</a></li>
+              <li class="forward"><a href="http://www.sencha.com/products/touch/" target="_blank">Sencha Touch</a></li>
+            </ul>
+            <h2>WireFrames &amp; Visual Mockups</h2>
+            <ul class="rounded">
+              <li class="forward"><a href="http://bit.ly/SND-MobileDesign-Wireframe-Photoshop" target="_blank">Photoshop</a></li>
+              <li class="forward"><a href="http://bit.ly/SND-MobileDesign-Wireframe-Illustrator" target="_blank">Illustrator</a></li>
+              <li class="forward"><a href="http://yhoo.it/SND-MobileDesign-Wireframe-Indesign" target="_blank">Indesign</a></li>
+              <li class="forward"><a href="http://bit.ly/SND-MobileDesign-Wireframe-Stencil" target="_blank">Stencil</a></li>
+              <li class="forward"><a href="http://bit.ly/SND-MobileDesign-Wireframe-Browser" target="_blank">Web-Based</a></li>
+              <li class="forward"><a href="http://bit.ly/SND-MobileDesign-Wireframe-Keynote" target="_blank">Keynote</a></li>
+              <li class="forward"><a href="http://yhoo.it/SND-MobileDesign-Wireframe-OmniGraffle" target="_blank">OmniGraffle</a></li>
+            </ul>
+            <h2>Other Stuff</h2>
+            <ul class="rounded">
+              <li class="forward"><a href="http://html-ipsum.com/" target="_blank">HTML Ipsum</a></li>
+              <li class="forward"><a href="http://w3schools.com/" target="_blank">W3Schools</a></li>
+            </ul>
+            <h2></h2>
+        </div>
+                
+        <div id="home" class="current">
+            <div class="toolbar">
+                <h1>SND QuickCourse</h1>
+                <a class="button slideup" id="infoButton" href="#about">About</a>
+            </div>
+            <ul class="rounded">
+                <li class="arrow"><a href="#participants">Participants</a> <small class="counter">5</small></li>
+                <li class="arrow"><a href="#schedule">Schedule</a></li>
+                <li class="arrow"><a href="#links">Links</a></li>
+            </ul>
+            <ul class="individual">
+                <li><a href="mailto:jgilbert@northwestern.edu" target="_blank">Email</a></li>
+                <li><a href="http://tinyurl.com/support-jqt" target="_blank">Donate</a></li>
+            </ul>
+            <div class="info">
+                <p>Add this page to your home screen to view the custom icon, startup screen, and full screen mode.</p>
+            </div>
+        </div>
+<!-- NOTES ON Actions 
+        <ul class="rounded">
+            <li><a href="#animdemo">Slide</a></li>
+            <li><a class="slideup" href="#animdemo">Slide Up</a></li>
+            <li><a class="dissolve" href="#animdemo">Dissolve</a></li>
+            <li><a class="fade" href="#animdemo">Fade</a></li>
+            <li><a class="flip" href="#animdemo">Flip</a></li>
+            <li><a class="pop" href="#animdemo">Pop</a></li>
+            <li><a class="swap" href="#animdemo">Swap</a></li>
+            <li><a class="cube" href="#animdemo">Cube</a></li>
+        </ul>
+-->
+    </body>
+</html>

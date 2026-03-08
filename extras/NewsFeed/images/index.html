@@ -1,0 +1,116 @@
+                      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Liquid Layout</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<link rel="apple-touch-icon" href="/extras/test/apple-touch-icon.png"/>		
+<link href="styles.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css" media="screen">
+
+    body {
+        margin: 0;
+        font-family: Helvetica;
+        background: #000000;
+        color: #FFFFFF;
+    }
+    
+    .container {
+        position: absolute;
+        width: 100%;
+    }
+
+    body[orient="profile"] .container {
+        height: 416px;
+    }
+    
+    body[orient="landscape"] .container {
+        height: 268px;
+    }
+    
+    .toolbar {
+        position: absolute;
+        padding: 10px 0;
+        width: 100%;
+        height: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: #3F4E63 0px -1px 1px;
+        background: url(http://www.joehewitt.com/files/iPhoneToolbar.png) #8191AA repeat-x;
+    }
+    
+    body[orient="landscape"] .toolbar {
+        font-size: 20px;
+    }
+
+    .anchorTop {
+        top: 0;
+    }
+
+    .anchorBottom {
+        border-top: 1px solid #3f4e63;
+        padding-bottom: 9px;
+        bottom: 0;
+    }
+
+    .center {
+        position: absolute;
+        top: 40px;
+        bottom: 40px;
+        background: #FFFFFF;
+    }
+
+    body[orient="landscape"] .center {
+        top: 40px;
+        bottom: 40px;
+        width: 100%;
+    }
+    
+    .item {
+        background: url(http://www.joehewitt.com/files/iPhoneArrow.png) no-repeat right center;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 8px 32px 8px 8px;
+        color: #000000;
+    }
+    
+</style>
+
+<script type="application/x-javascript">
+    
+    addEventListener("load", function()
+    {
+        setTimeout(updateLayout, 0);
+    }, false);
+
+    var currentWidth = 0;
+    
+    function updateLayout()
+    {
+        if (window.innerWidth != currentWidth)
+        {
+            currentWidth = window.innerWidth;
+
+            var orient = currentWidth == 320 ? "profile" : "landscape";
+            document.body.setAttribute("orient", orient);
+            setTimeout(function()
+            {
+                window.scrollTo(0, 1);
+            }, 100);            
+        }
+    }
+
+    setInterval(updateLayout, 400);
+    
+</script>
+
+</head>
+
+<body>
+    <div class="container">
+		Testing.
+    </div>
+</body>
+</html>

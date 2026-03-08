@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Babl: Tap Into Conversation</title>
+  <script type="text/javascript" charset="utf-8">
+    document.createElement("section");
+    document.createElement("article");
+    document.createElement("figure");
+  	document.createElement("header");
+  	document.createElement("nav");
+  	document.createElement("footer");
+  </script>
+  <style type="text/css" media="screen">
+  /* HTML5 Reset */
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+       v2.0b1 | 201101 
+       NOTE: WORK IN PROGRESS
+       USE WITH CAUTION AND TEST WITH ABANDON */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section, summary,
+    time, mark, audio, video {
+    	margin: 0;
+    	padding: 0;
+    	border: 0;
+    	outline: 0;
+    	font-size: 100%;
+    	font: inherit;
+    	vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+    	display: block;
+    }
+    body {
+    	line-height: 1;
+    }
+    ol, ul {
+    	list-style: none;
+    }
+    blockquote, q {
+    	quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+    	content: '';
+    	content: none;
+    }
+
+    /* remember to define visible focus styles! 
+    :focus {
+    	outline: ?????;
+    } */
+
+    /* remember to highlight inserts somehow! */
+    ins {
+    	text-decoration: none;
+    }
+    del {
+    	text-decoration: line-through;
+    }
+
+    table {
+    	border-collapse: collapse;
+    	border-spacing: 0;
+    }
+  /* Fonts */
+    @font-face { font-family: MisoBold; src: url('fonts/miso-bold.otf'); } 
+    @font-face { font-family: MisoRegular; src: url('fonts/miso-regular.otf'); } 
+    @font-face { font-family: MisoLight; src: url('fonts/miso-light.otf'); }
+  /* Babl styles */
+    body{background:#5b605f;color:white;font-family:'MisoRegular',Verdana,Arial,Sans-Serif;font-size:17pt;line-height:32px;text-shadow:0 1px 1px #000;}
+    a{text-decoration:none;color:#a1a193;}
+    section#container{overflow:auto;}
+    header{padding-bottom:25px;height:80px;}
+    header #indicator{position:absolute;left:37px;top:68px;z-index:1;}
+    header h1 {color:#a1a193;font-size:24pt;text-shadow:0 1px 1px #000;position:relative;top:-25px;background:#464646;padding:25px 20px 0 20px;-moz-box-shadow: 0 1px 5px #000;-webkit-box-shadow: 0 1px 5px #000;box-shadow: 0 1px 5px #000;height:75px;z-index:-1;}
+    header h1 strong {color:#ffffff;font-size: 42pt;}
+    header h1 strong, section h2 {font-family:'MisoBold',Verdana,Arial,Sans-Serif;}
+    #content {width:960px;}
+    figure, article {float:left;}
+    figure {width:295px;margin:20px 40px 0 40px;}
+    article {width:585px;}
+    article h2,article h3,article p{text-align:center;}
+    article h2{line-height:100pt;font-size:192pt;height:260px;}
+    article h3{font-size:36pt;color:#a1a193;text-transform:uppercase;font-family:'MisoRegular',Verdana,Arial,Sans-Serif;}
+    article p{width:425px;margin:30px auto 0 auto;color:#a1a193;letter-spacing:.75px;}
+    article p em{color:white;}
+    article h4{margin-top:20px;text-align:right;color:#a1a193;font-family:'MisoLight';text-transform:uppercase;font-size:14pt;}
+    article h4 strong{color:#81acc0;font-family:'MisoRegular';font-size:15pt;position:relative;top:10px;}
+  </style>
+</head>
+<body id="home">
+  <section id="container">
+    <header>
+      <div id="indicator"><img src="img/triangle.png" /></div>
+      <h1><strong>Babl</strong> Tap Into Conversation</h1>
+    </header>
+    <div id="content">
+      <figure>
+        <img src="img/app.png" alt="Babl, Tap Into Conversation" />
+      </figure>
+      <article>
+        <h2>Babl</h2>
+        <h3>Tap Into Conversation</h3>
+        <p><em>Babl</em> is an experiment in conversation sharing through Twitter. Everyday, conversations unfold on Twitter about interesting topics and current events. Unfortunately if your social circle isn't participating, you may not know how to find them. <em>Babl</em> aims to change that, bringing crowd suggested twitter conversation to your palm.</p>
+        <h4><a href="http://knightlab.northwestern.edu"><strong>Knight News Innovation Lab</strong><br /> Northwestern University</a></h4>
+      </article>
+    </div>
+  </section>
+</body>
+</html>

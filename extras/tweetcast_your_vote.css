@@ -1,0 +1,383 @@
+/*
+Color values
+red #d5302a
+blue #1781d7
+*/
+
+/*************************************************************************************/
+body {
+	font: 100%/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif; 
+	text-align: center;
+	background: #ffffff;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/*************************************************************************************/
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 
+	padding-right: 15px;
+	padding-left: 15px; 
+	}	
+h1 {
+	margin: 10px auto 20px auto;
+	text-indent: -9999px;
+	background-image: url(../images/tweetcast_your_vote.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+}
+h5 {
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif; 
+	font-size: 20px;
+	text-align: center;
+	line-height: 1.5em;
+	text-decoration: none;
+}
+h4 {
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	font-size: 14.5px;
+	letter-spacing:1.5px;
+	color: #333;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0px 0px 5px 0px;
+}
+p {
+	max-width: 600px;
+	min-width: 320px;
+	margin: 0 auto;
+	text-indent: 2em;
+	text-align: left;
+	line-height: 2em;
+}
+hr {
+	min-width: 520px;
+	padding-top:25px;
+	background:url(../images/hr-520.png) no-repeat bottom center;
+	margin:0 auto;
+	border:0;
+	overflow:auto;
+	clear:both;
+}
+.terms hr {
+	height:9px;
+}
+
+/* a img {
+	border: 1px black solid;
+}
+*/
+
+.header a:link {
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	font-size: 18px;
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+.header a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+p a:link {
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	color: #d5302a;
+}
+
+a:visited {
+	color: #d5302a;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+}
+.terms ul {
+	text-align: center;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+.terms ul h5 {
+	text-align: center;
+	margin: 0;
+}
+
+.terms ul li {
+	text-align: center;
+	list-style-type: none;
+	list-style-position: inside;
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	font-size: 14;
+	line-height: 1.55em;
+}
+
+
+
+/*************************************************************************************/
+.container {
+	width: 80%;
+	max-width: 800px;
+	min-width: 320px; 
+	background: #ffffff;
+	margin: 0 auto; 
+}
+.header {
+	display: block;
+	border: none;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 25px;
+}
+.header img {
+	margin-bottom:10px;
+}
+/* .header {
+	display: block;
+	background: #ececec;
+	border: none;
+	border-radius: 0px 0px 30px 30px;
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	margin-bottom: 25px;
+} */
+
+/*************************************************************************************/
+.content .twittername {
+	overflow: hidden;
+	position: relative;
+	right: 20px;
+	-webkit-border-radius: 65px;
+	-moz-border-radius: 65px;
+	border-radius: 65px;
+	margin: 0 auto;
+	margin-bottom: 40px;
+	width: 450px;
+	height: 55px;
+	background: #ffffff;
+	-moz-box-shadow: inset 0 0 15px #666666;
+	-webkit-box-shadow: inset 0 0 15px #666666;
+	box-shadow: inset 0 0 15px #666666;
+	border: none;
+}
+
+.content .twittername input#go {
+	background: #d5302a;
+	color: #ffffff;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: none;
+	width: 45px;
+	height: 30px;
+	font-size: 12pt;
+	float: right;
+	position: relative;
+	top: 12px;
+	right: 20px;
+	overflow: hidden;
+}
+
+.content .twittername input#go:active,#search #content input#go:hover {
+	background: #d5302a;
+	color: #ffffff;
+}
+
+input::-webkit-input-placeholder, input::-moz-placeholder {
+	color: black;
+}
+
+.content .twittername input#username {
+	background: none;
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	color: black;
+	font-size: 18px;
+	text-align: center;
+	display: block;
+	width: 80%;
+	border: none;
+	margin: 15px auto 0 auto;
+	overflow: hidden;
+}
+
+
+/*************************************************************************************/
+.about-the-tech {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.terms {
+	margin-top: 30px;
+}
+
+/*************************************************************************************/
+.content {
+	padding: 10px 0;
+}
+.content ul, .content ol { 
+
+/*	padding: 0 15px 15px 40px; */
+}
+
+/*************************************************************************************/
+.terms {
+	max-width: 800px;
+	min-width: 320px;
+	margin: 20px auto 40px auto;
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif; 
+	text-align: center;
+	color: black;
+	line-height: 1em;
+	overflow:auto;
+}
+.terms h5 {
+	width: 48%;
+	margin:0;
+	padding:130px 0 0 0;
+}
+.terms h5.romney {
+	float: left;
+	text-align:right;
+	background:url(../images/romney-ryan.png) no-repeat right top;
+	color:#d5302a;
+}
+.terms h5.obama {
+	float: right;
+	text-align:left;
+	background:url(../images/obama-biden.png) no-repeat left top;
+	color:#1781d7;
+}
+.terms h4 {
+	margin:25px 0 10px;
+	padding:0;
+}
+.terms ul {
+	overflow:auto;
+}
+.terms ul.termlist {
+	clear:both;	
+}	
+.terms ul.romney{
+	float: left;
+	width: 48%;
+}
+.terms ul.romney li {
+	text-align:right;
+}
+.terms ul.obama {
+	float: right;
+	width: 48%;
+}
+.terms ul.obama li {
+	text-align:left;
+}
+.terms ul li {
+	overflow:auto;
+}
+.terms hr {
+	min-width:200px;
+	width:280px;
+	height:9px;
+	padding-top:25px;
+	background:url(../images/hr-280.png) no-repeat bottom;
+	margin:0 auto;
+	border:0;
+	overflow:auto;
+	clear:both;
+}
+.clearfloat { 
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+
+/*************************************************************************************/
+.footer {
+	padding: 10px 0;
+	background: #ffffff;
+	height: 100%;
+	margin: 0 0 30px 0;
+}
+
+.footer ul {
+	margin: 10px auto 15px auto;
+	padding: 0;
+	overflow: auto;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+.header a:link, .footer a:link {
+	font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	color: #d5302a;
+	font-size:16px;
+}
+.header a:visited, .footer a:visited {
+	color: #d5302a;
+}
+.header a:hover, .footer a:hover {
+	color: #000;
+}
+.header p, .footer p {
+	text-align: center;
+}
+
+/* Adapative styles */
+
+@media screen and (max-width: 480px) {
+	hr {
+		min-width: 300px;
+		padding-top:25px;
+		background:url(/static/images/hr-280.png) no-repeat bottom center;
+	}
+	.terms ul li {
+			overflow:hidden;
+	}
+	.content .twittername {
+		width:320px;
+	}
+	p {
+		width: 100%;
+		max-width:290px;
+		padding:0;
+	}
+	h1 {
+		background-image: url(/static/images/tweetcast_your_vote_mobile.png);
+	}
+	h6 {
+		text-indent:-9999px;
+		background-image: url(/static/images/vote_icon_mobile.png);
+	}
+	.terms h5 {
+		padding:70px 0 0 0;
+	}
+	.terms h5.romney {
+		background:url(/static/images/romney-ryan_mobile.png) no-repeat right top;
+	}
+	.terms h5.obama {
+		background:url(/static/images/obama-biden_mobile.png) no-repeat left top;
+	}
+	/* NEW 11/1/12 */
+	h6
+	#results-container .terms ul li {
+		min-width:280px;
+		width:100%;
+		margin: 0 auto;
+	}
+}

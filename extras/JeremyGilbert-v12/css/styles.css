@@ -1,0 +1,382 @@
+@font-face { font-family: 'Edmondsans'; src: url('Edmondsans-Regular.otf'); } 
+@font-face { font-family: 'Edmondsans'; font-weight: bold; src: url('../fonts/Edmondsans-Bold.otf'); }
+
+body,header,nav,footer,ul,li {
+	margin:0;
+}
+
+body {
+	color: #333333;
+	background: #f1f1f1 url('../img/background.png') repeat;
+	font-family: 'Edmondsans','Lucida Grande', courier;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+h3 {
+	font-weight: normal;
+	color: white;
+	text-align: center;
+}
+
+ul,li {
+	list-style-type: none;
+	margin: 10px 0;
+	padding: 0;
+}
+
+header {
+	width:100%;
+	margin: 0;
+}
+
+header a {
+	color: #f1f1f1;
+	text-decoration: none;
+}
+
+header a:hover, header a:active {
+	color: #ffffff;
+}
+
+nav {
+	background: black;
+	overflow: visible;
+	height: 45px;
+	text-align: center;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+nav ul {
+	width: 660px;
+	margin: 0 auto;
+	overflow: auto;
+	padding: 0;
+}
+
+nav li {
+	font-size: 1.15em;
+	height: 45px;
+	float: left;
+	list-style-type: none;
+	margin: 0 20px 0 0;
+}
+
+nav li:last-child {
+	margin-right: 0;
+}
+
+nav li a {
+	float: left;
+	padding-top: 10px;
+	width: 150px;
+	height: 45px;
+}
+
+hgroup {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+hgroup h3 {
+	color: #000000;
+	font-size: 1.15em;
+	margin: 40px 0 10px 0;
+}
+
+hgroup h1 {
+	color: #512a16;
+	font-size: 3.5em;
+	margin-top: 10px;
+}
+
+#home article {
+	border-bottom: 1px solid #999999;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+#home article h2 {
+	font-size: 2.25em;
+	margin: 10px 0 10px 30px;
+}
+
+#home aside {
+	text-align: right;
+	position: relative;
+	top: -3px;
+	font-size: .7em;
+	text-transform: uppercase;
+	clear: both;
+}
+
+#home aside a {
+	color: #512a16;
+}
+
+#home aside h4.category {
+	padding: 4px 10px;
+	width: 100%;
+}
+
+#home aside h4.category a {
+	color: white;
+	font-size: 1.25em;
+}
+
+#home aside h4.category.work {
+	background-color: #6067af;
+}
+
+#home aside h4.category.articles {
+	background-color: #60af9f;
+}
+
+#home aside h4.category.teaching,#home aside h4.category.about {
+	background-color: #9860af;
+}
+
+#home aside h4.category.resume {
+	background-color: #af6060;
+}
+
+#home aside ul li {
+	list-style-type: none;
+}
+
+#home aside time {
+	margin-bottom: 15px;
+	display: block;
+	width: 100%;
+}
+
+section.recentlyfeatured h3 {
+	color: #333333;
+	margin-bottom: 10px;
+}
+
+section.recentlyfeatured h4 {
+	font-size: .9em;
+	color: #666666;
+	font-weight: normal;
+	text-align: center;
+	margin: 10px 0 10px 0;
+}
+
+section.recentlyfeatured img {
+	display: block;
+	margin: 10px 0 2px 0;
+	width: 100%;
+}
+
+section.recentlyfeatured time {
+	font-size: .65em;
+	text-transform: uppercase;
+	color: #999999;
+	margin: 2px 0 5px 0;
+}
+
+section.recentlyfeatured h5 {
+	font-size: 1.05em;
+	color: #333333;
+	font-weight: normal;
+	margin: 5px 0 0 0;
+}
+
+footer {
+	background: #333333;
+	color: #cccccc;
+	margin-top: 40px;
+	font-size: 1em;
+	line-height: 1.75em;
+	z-index: -1;
+}
+
+footer a {
+	color: #cccccc;
+}
+
+footer a:hover, footer a:active {
+	color: #ffffff;
+}
+
+footer .aboutme img, footer .whatimreading img {
+	margin: 5px 20px 10px 0;
+}
+
+nav.bottomnav {
+	border-top: 2px solid #f1f1f1;
+	border-bottom: 2px solid #f1f1f1;
+	margin-bottom: 120px;
+	font-size: .85em;
+	z-index: 1;
+}
+nav.bottomnav ul {
+	width: 100%;
+	overflow: visible;
+	padding-top: 3px;
+}
+
+nav.bottomnav a {
+	color: #cccccc;
+}
+
+nav.bottomnav a:hover, nav.bottomnav a:active {
+	color: white;
+	text-decoration: none;
+}
+
+nav.bottomnav h1 {
+	background: url('../img/footer-icon.png') 0 0 no-repeat;
+	text-indent: -9999px;
+	background-position: bottom center;
+	width: 104px;
+	height: 104px;
+	position: relative;
+	top: -50px;
+	overflow:visible;
+}
+
+/* Colors that target specific categories */
+nav li a:hover {
+	text-decoration: none;
+}
+nav li.work a:hover, nav li.work a:focus {
+	background-color: #6067af;
+	color: white;
+}
+nav li.articles a:hover, nav li.articles a:focus, nav li.active.articles a {
+	background-color: #60af9f;
+	color: white;
+}
+nav li.teaching a:hover, nav li.teaching a:focus, nav li.active.teaching a,nav li.about a:hover, nav li.about a:focus, nav li.active.about a {
+	background-color: #9860af;
+	color: white;
+}
+
+nav li.resume a:hover, nav li.resume a:focus, nav li.active.resume a {
+	background-color: #af6060;
+	color: white;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+	
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	section {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	#home section h2 {
+		margin-left: 0;
+		font-size: 1.5em;
+	}
+	
+	hgroup {
+		margin-bottom: 25px;
+	}
+	
+	hgroup h3 {
+		font-size: .9em;
+		margin: 25px 0 10px 0;
+	}
+
+	hgroup h1 {
+		font-size: 1.85em;
+		margin-top: 10px;
+	}
+	
+	hgroup img  {
+		width: 25%;
+		height: 25%;
+	}
+
+	header {
+		width: 100%;
+	}
+
+	nav {
+		height: 36px;
+	}
+	nav ul {
+		width: 320px;
+	}
+	nav li {
+		font-size: 1em;
+		font-weight: bold;
+		height: 36px;
+		margin: 0;
+	}
+	nav li a {
+		padding-top: 8px;
+		width: 80px;
+	}
+	
+}
+
+@media (min-width: 1px) and (max-width: 1200px) {
+
+	aside {
+		overflow: auto;
+		margin-top: 2em;
+		margin-bottom: 10px;
+	}
+	
+	aside .category {
+		margin-top: 0;
+	}
+	
+	aside time  {
+		margin-top: 2px;
+		padding-top: 3px;
+	}
+
+	aside .tags li {
+		margin: 0 0 5px;
+		width: 100%;
+	}
+
+	aside .category, aside time, aside li {
+		float: left;
+		margin-right: 10px;
+	}
+	
+	footer .aboutme img, footer .whatimreading img {
+		width: 35%;
+		margin-right: 20px;
+		float: left;
+	}
+	
+	.socialmedia li {
+		text-align:center;
+		background: pink;
+		text-transform: uppercase;
+	}
+	
+	.bottomnav h1 {
+		display: none;
+	}
+
+	.bottomnav li {
+		float: left;
+		width: auto;
+	}
+	
+}

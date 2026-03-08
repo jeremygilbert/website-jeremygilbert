@@ -1,0 +1,3053 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Twxray: Profile</title>
+      <script type="text/javascript" charset="utf-8">
+        document.createElement("section");
+        document.createElement("article");
+        document.createElement("figure");
+      	document.createElement("header");
+      	document.createElement("nav");
+      	document.createElement("footer");
+      </script>
+      <script type="application/javascript" src="http://twxray.knilab.com/static/js/jquery-1.7.2.min.js"></script>
+      <script type="application/javascript" src="http://twxray.knilab.com/static/js/pie.js"></script>
+      <style type="text/css" media="screen">
+      /* HTML5 Reset */
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+           v2.0b1 | 201101 
+           NOTE: WORK IN PROGRESS
+           USE WITH CAUTION AND TEST WITH ABANDON */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section, summary,
+        time, mark, audio, video {
+        	margin: 0;
+        	padding: 0;
+        	border: 0;
+        	outline: 0;
+        	font-size: 100%;
+        	font: inherit;
+        	vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+        	display: block;
+        }
+        body {
+        	line-height: 1;
+        }
+        ol, ul {
+        	list-style: none;
+        }
+        blockquote, q {
+        	quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+        	content: '';
+        	content: none;
+        }
+
+        /* remember to define visible focus styles! 
+        :focus {
+        	outline: ?????;
+        } */
+
+        /* remember to highlight inserts somehow! */
+        ins {
+        	text-decoration: none;
+        }
+        del {
+        	text-decoration: line-through;
+        }
+
+        table {
+        	border-collapse: collapse;
+        	border-spacing: 0;
+        }
+      /* twXray styles */
+        body{
+          background: #b6c647; /* Old browsers */
+          background: -moz-linear-gradient(left, #b6c647 0%, #c9da4f 50%, #b6c647 100%); /* FF3.6+ */
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%,#b6c647), color-stop(50%,#c9da4f), color-stop(100%,#b6c647)); /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(left, #b6c647 0%,#c9da4f 50%,#b6c647 100%); /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(left, #b6c647 0%,#c9da4f 50%,#b6c647 100%); /* Opera 11.10+ */
+          background: -ms-linear-gradient(left, #b6c647 0%,#c9da4f 50%,#b6c647 100%); /* IE10+ */
+          background: linear-gradient(left, #b6c647 0%,#c9da4f 50%,#b6c647 100%); /* W3C */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b6c647', endColorstr='#b6c647',GradientType=1 ); /* IE6-9 */
+          font-family:Helvetica,HelveticaNeue,Verdana,Arial,Sans-Serif;
+          color:#ffffff;
+          }
+        textarea:focus, input:focus{outline: none;}
+        a{text-decoration:none;}
+        a:hover{color:#fff;}
+        section#container,footer{width:1024px;margin:0 auto;}
+        footer {text-align:center;position:absolute;bottom:25px;font-size:12pt;}
+        footer a{color:#676766;}
+        #results{color:#676766;font-family:Georgia,'Times New Roman',Times,serif;font-size:12pt;}
+        #results header{text-indent:-9999px;background:url('img/twXray-logo-results.png') no-repeat center;width:100%;background-color:#676766;height:160px;-moz-box-shadow: inset 0 0 15px #000; -webkit-box-shadow: inset 0 0 15px #000; box-shadow: inset 0 0 15px #000;border-bottom:1px #dee0e1 solid;}
+        #results header a{width:100%;height:100%;height:160px;display:block;}
+        #results h2{font-size:20pt;font-weight:normal;margin:25px auto 40px auto;text-align:center;color:#676766;font-family:Helvetica,HelveticaNeue,Verdana,Arial,Sans-Serif;}
+        #results #chart-container canvas{width:375px;float:left;margin-right:20px;}
+        #results #chartData-container{width:170px;float:left;margin-right:20px;}
+        #results #chartData-container table#chartData{width:100%;}
+        #results #chartData-container table#chartData tr{border-bottom:1px solid #9faa50;}
+        #results #chartData-container table#chartData tr:last-child;{border-bottom:0 none;}
+        #results #chartData-container table#chartData tr td{padding:8px 5px;}
+        #results ul.tweet-list{width:350px;float:left;height:600px;}
+        #results ul.tweet-list p.tweet-text{background:url('img/twitter-top.png') no-repeat;padding:15px 10px 5px 10px;font-size:11pt;line-height:15pt;}
+        #results ul.tweet-list p.tweet-category{background:url('img/twitter-bottom.png') no-repeat;height:20px;padding:5px 10px 25px 10px;text-transform:uppercase;font-family:Helvetica,HelveticaNeue,Verdana,Arial,Sans-Serif;font-size:8pt;letter-spacing:1px;}
+      </style>
+    </head>
+<body id="results">
+  <header>
+    <h1><a href="index.html">twXray</a></h1>
+  </header>
+  <section id="container">
+    <h2>@jeremygilbert</h2>
+
+    <div id="chart-container">
+        <canvas id="chart" width="500" height="500"></canvas> 
+        <div id="chartData-container" class="rounded">
+            <table id="chartData">			  
+
+                <tr class="cat-technology">
+                    <td>technology</td>
+                    <td>63</td>
+                </tr>                
+
+                <tr class="cat-education">
+                    <td>education</td>
+                    <td>60</td>
+                </tr>                
+
+                <tr class="cat-media">
+                    <td>media</td>
+                    <td>17</td>
+                </tr>                
+
+                <tr class="cat-sports">
+                    <td>sports</td>
+                    <td>17</td>
+                </tr>                
+
+                <tr class="cat-food">
+                    <td>food</td>
+                    <td>13</td>
+                </tr>                
+
+                <tr class="cat-college">
+                    <td>college</td>
+                    <td>12</td>
+                </tr>                
+
+                <tr class="cat-politics">
+                    <td>politics</td>
+                    <td>12</td>
+                </tr>                
+
+                <tr class="cat-arts">
+                    <td>arts</td>
+                    <td>11</td>
+                </tr>                
+
+                <tr class="cat-books">
+                    <td>books</td>
+                    <td>10</td>
+                </tr>                
+
+                <tr class="cat-style">
+                    <td>style</td>
+                    <td>8</td>
+                </tr>                
+
+                <tr class="cat-green">
+                    <td>green</td>
+                    <td>8</td>
+                </tr>                
+
+                <tr class="cat-entertainment">
+                    <td>entertainment</td>
+                    <td>7</td>
+                </tr>                
+
+                <tr class="cat-travel">
+                    <td>travel</td>
+                    <td>7</td>
+                </tr>                
+
+                <tr class="cat-business">
+                    <td>business</td>
+                    <td>6</td>
+                </tr>                
+
+                <tr class="cat-healthy-living">
+                    <td>healthy living</td>
+                    <td>5</td>
+                </tr>                
+
+                <tr class="cat-religion">
+                    <td>religion</td>
+                    <td>5</td>
+                </tr>                
+
+                <tr class="cat-world">
+                    <td>world</td>
+                    <td>3</td>
+                </tr>                
+
+                <tr class="cat-impact">
+                    <td>impact</td>
+                    <td>2</td>
+                </tr>                
+
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <ul class="tweet-list">
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @gotoplanb: RT @FastCoDesign: 10 Ways That Mobile Learning Will Revolutionize Education http://t.co/HJQkfhSc</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @jeremybowers: Being a parent in the future is awesome. http://t.co/6hoYkUNW</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">RT @nathan_ford: Brilliant. Pixar storyboarder recreates movie scenes as pages of a “Children’s” book:
+    http://t.co/5uboBCFS</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @markboulton: Given Microsoft are making such a big deal about Surface being a productivity device – with a keyboard. Can only use it ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @Poynter: New tracker shows how @nytimes edits stories after they&#39;re published: http://t.co/oyJR9upx &#34;Versioning should be the model&#34;</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kpark505 I&#39;m surprised  @jeremybowers didn&#39;t give you two lists of places to eat -- one for NC BBQ and another for your hometown: Tampa.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kpark505 An auspicious start to the trip. And isn&#39;t DC notably north of Charlotte?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @lukew: How many people use mobile maps? How often? Does usage differ between iOS &amp;amp; Android? 
+    In today&#39;s Data Monday: http://t.co ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @richgor: MT @JustinNXT: More on Knight Prototype fund: Less than $50K, timeframe of 60-120 days to make demo or proof of concept. #c ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">Sigh. “@gotoplanb: @jeremybowers I think my new beer is the best one yet. It&#39;s going to be amazing with another month of aging.”</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@genemoy Re: Demand for hard news or content aggregator sites. I know less about the question of cost of supply. Who pays for reporting?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">A pleasure to work with you. “@christenacarter: Graduated! Thanks so much @MedillSchool, @jeremygilbert… and so many more! #Medill2012”</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @eulken: #Job at @seattletimes: We&#39;re looking for someone to lead our daily digital news and audience development efforts http://t.co ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @opennews: Two spots for developers have opened up for this weekend&#39;s Knight-Mozilla-MIT Hack day at the Media Lab. Come on: http://t ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">RT @ascheink: NYPL is scanning, georectifying, digitizing, adding metadata and publishing 1000s of historical maps http://t.co/pcVhWDRB</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@Journerdism I haven&#39;t either but the Metro design language is pretty compelling. It&#39;s an interesting counterpoint to Apple.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@Journerdism Are you rolling with Windows Mobile?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @Journerdism: If you&#39;re curious about Windows Mobile 8, there&#39;s a ux training session streaming all day here: http://t.co/dW9OBDjv</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">RT @mallarytenore: After Advance cuts staff by 400, what will the future of news look like in Alabama? http://t.co/AOiamt1F Thoughtful a ...</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@limejell0 Feel free to give to @poynter it&#39;s a great cause -- http://t.co/BAEu6aex -- but donations are unlikely to help FL power outages.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@ssdai For those who might be worried, @poynter has power again, and the outage was not because of unpaid bills. #LightsStillOnAtPoynter</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jpgillin definitely a missed opportunity but glad to see you in all of your #Mets glory.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jeremybowers you know @gotoplanb and I would have the sangria and patatas brava covered.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">#Conversant $School vouchers $Romney vouchers, romney school choice</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">It&#39;s that time of year: @mirandamulligan: Students/Recent grads! “how to author a résumé in HTML5/CSS3 that scales… http://t.co/zWmvbSSm”</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">RT @dorsey: @michaelwhitley : Careful. Don’t break out the 60pt type before you count your eggs, mister :) #GoKings (Wings - “K” = Kings)</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">#Conversant $Tampa Rays $Tampa rays, rays, rays new stadium</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @klenzdesign: for all you journalism nerds: 6:15 p.m. tonight = live stream with Woodward, Bernstein, other Watergate players at http ...</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb lets develop the fuzzy-nice scale more. I see potential citations -- especially when someone&#39;s qualitative research went awry.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb Still puzzling over your baristas. How were Ft Lauderdale, Boca &amp;amp; Ft Myers compared? Avg age? Quality of beaches? Foreclosures?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">RT @brainpicker: What a gem – 1933 book lover&#39;s map of literary geography http://t.co/BLMHkE3g</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle What brings you to Chicago?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@sisiwei We seek to entertain. I think there is potential there, just as there was with #TwitterEvents. They still follow your method.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">Good luck. “@Brent_Huffman: TONIGHT is the BIG NIght - @MedillSchool documentaries- 6pm: https://t.co/Qb7PjTE0”</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @jeremybowers: How to convince people to eliminate their jobs when your business environment has changed: http://t.co/bKVaCpuF Seems  ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@sisiwei you should be able to find it here: http://t.co/iknIRwbE -- it&#39;s flash based so I cannot confirm. Zoun! came towards the end.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">Congrats to all the #NUJTech students and faculty. Hard to believe it&#39;s been four years since I created this class &amp;amp; invented the process.</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@ninamehta I&#39;d love to meetup not sure about TechWeek attendance, but I&#39;m excited to hear about @twilio</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@sisiwei watching #Zoun! The next generation of #TwitterEvents at #NUJTech</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @DanHillReports: Mad props to the PrintF team for explaining the geekery behind their team name #NUJTech #hhchi</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Great job by the #MedillInnov12 students who made a compelling case for Chicago-centric, global focused media products.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @knightnewslab: TONIGHT: CS and journ students present concepts to improve news commenting, tweeting, &amp;amp; political tracking.RSVP:  ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @MedillSchool: You can watch the #MedillInnov12 presentation live at http://t.co/XmRzS2vh. Username: wbez Password: wbezmedill Enjoy!</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @richgor: Taking public radio mobile: great ideas to expand, diversify #WBEZ audience from #MedillInnov12 MSJ students.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">RT @Yarcom: - I&#39;m a product designer
+    - so you design humidifiers?
+    - no, like, I design products for the web.
+    - So you&#39;re a web designer? ...</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">RT @design4america: DFA Yale keeping track of things on their new blog before their official start this fall!... http://t.co/AVRwjrST</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Want to help with Poynter&#39;s new tablet research and make $75? Need Tampa Bay iPad users, 18-28 OR 45-55 years. http://t.co/CEV3Zsbf @Poynter</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">I&#39;m excited to kick off the week with @gotoplanb and @CindyRoyal on the @3rdAveRadio&#39;s newest episode of View Source: http://t.co/zdNXMMot</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @MedillSchool: Read how journalism students and developers collaborate to innovate at #Medill. http://t.co/sA7On8Jm @richgor @jeremyg ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded healthy-living">
+            <p class="tweet-text">RT @virtualex: Globe Lab: Breathing New Life Into Journalism http://t.co/seZz5izy #ascj | via @WBUR</p>
+            <p class="tweet-category"><span class="cat-healthy-living">healthy living</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@juliemmoos I think it makes the first round of work no less valid but I&#39;d like to see the analysis broken down by topic and then gender.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@juliemmoos what I&#39;m curious about are the readership/viewership demos. I think Pintrest skews female. Does that imply PBS &amp;amp; USAT do too?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Glad MIT Media Lab is focusing on media again: http://t.co/fB4pgJmf -- this is further proof the @MedillSchool model works. #collaboration</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">Should I be worried? “@kpark505: I think at least 25 percent of our interactive design class is at @nbn_tweets variety show. #finalprojects”</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">RT @meg_e_martin: Tonight&#39;s @frontlinepbs episode: Big-time goosebumps. http://t.co/D6GZlWK3</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">A question of engagement or audience? “@Poynter: Pinterest analysis: PBS, USAT engage w/ readers most effectively http://t.co/ZNYXbjWY”</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jeremybowers very excited to meet Amelia (Wright and @jessicapgilbert are too. Is it too soon to follow her on GitHub?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer I&#39;m sure @tribapps, @MedillSchool and Chicago in general will miss you but NPR seems like a perfect place for you.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded religion">
+            <p class="tweet-text">RT @Bill80: this is a holy sht photo from @briancassella http://t.co/ZHwESXu0  (And then look at the one below it)</p>
+            <p class="tweet-category"><span class="cat-religion">religion</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded world">
+            <p class="tweet-text">RT @knightnewslab: #NATO vs. #NoNATO. What&#39;s the difference? The Knight Lab has some perspective: http://t.co/B7BzV5yV</p>
+            <p class="tweet-category"><span class="cat-world">world</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">…but chatting about journalism, coding and education with @gotoplanb @cindyroyal was a pleasure -- regardless of how I sounded.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Looking forward to the next View Source podcast. I&#39;m counting on @gotoplanb, #AutoTune and @cindyroyal to make me sound articulate.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb @cindyroyal I&#39;ll be there!</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kevinschaul there is a new generation of undergrads with both conceptual &amp;amp; applicable skills -- the pipeline @mattwaite was talking about.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kevinschaul What kind of Journo-Devs do you need?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle Forcing students to learn is a tough sell for almost anything. I love the mentoring approach but scale is important too.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle Teaching specific coding frameworks may not make sense but an introduction to coding might channel students&#39; passion to learn.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle Think more broadly about journalism schools. Medill, like @newsu, can reach non-traditional students in nontraditional ways.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle And I agree that IT is somewhere south of imperfect. @jeremybowers may have started there but now he&#39;s a journalist who codes.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle I support hiring civic coders but are newsrooms better than J-Schools at training? If so, @mattwaite &amp;amp; I should be worried.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle And I do think that journalism training really helps with coding for news or news products. Not indoctrination but information.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle I&#39;m with @mattwaite in that people NEED more j-students who code than I have. Or at least they ASK for them.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">If J-students wonder where jobs are: “@jeremybowers: I&#39;m a bit of a homer, but I do like working for @washingtonpost … http://t.co/GPSDqBFG”</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">RT @andymboyle: Algorithms and journalisms, part two: http://t.co/pBiAGb1H</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">So much for intuitive usability: “@gotoplanb ... That&#39;s cool you made an iPad app to train folks to use your stereo… http://t.co/ueaotCFE”</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb @cindyroyal Thursday at noon EDT would probably work for me.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb sure thing but it would be more fun with @cindyroyal too! Later in the week is better for me.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb count me in for the podcast -- I bet @cindyroyal has troubles of her own to share.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @jmacdonald: Holy cow...how google drive terms compare to dropbox and Microsoft. ..wow. http://t.co/Ixhk1l5Z</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb thanks for the #FF and the same back at you -- anyone who loves usability, journalism or technology... This is your guy.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">RT @Sparksheet: Here&#39;s the rest of our Q&amp;A with @BostonGlobe&#39;s @mirandamulligan: http://t.co/tubqe7eW #design</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @Poynter: How &#34;human assisted reporting&#34; could help reporters find big stories: http://t.co/qeIGTEn1 featuring @palewire @derekwillis</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">RT @yurivictor: Job: Newsroom developer/data viz programmer at @bostonglobe http://t.co/8TXZcZ4p Send work to mulligan at http://t.co/Wu ...</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @irasocol: reading @catherinecronin on digital identity, privacy http://t.co/zLgPksCh</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @jeffjarvis: New post: If journalists acted like programmers. Thinking aloud: http://t.co/hTGjkLbF</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">RT @gotoplanb: Great slidedeck from @grigs on designing for televisions http://t.co/plzihPQ3</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @myersnews: Please congratulate my colleague @MallaryTenore for being a finalist in two categories for the Mirror Awards. http://t.co ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @richgor: Kudos to @ndiakopoulos, @tkcuny for clear-thinking white paper on &#34;computational journalism&#34; innovation: http://t.co/jdgNwE2E</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb I like thinking about the messages in my inbox as mob of angry, torch bearing villagers, but I would&#39;t want them at my door.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb What if that includes emails from you that I need to respond to?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">F.A. Porsche was an incredible designer — the 1968 Porsche S Targa is practically unmatched. His genius will be missed: http://t.co/7yfTC4Cr</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb Re: Inbox Zero, my jealousy cannot be measured. What do you charge for my inbox clearing?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kzhu91 I&#39;m looking forward to seeing what you build. Good luck and congrats. All of #Medill is proud of your success.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kzhu91 Well deserved &amp; earned: RT @google The 6 winners of the inaugural AP-Google Journalism &amp; Technology Scholarship http://t.co/p7kLHo5m</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @btrpkc: Great to see @medillschool in new Sorkin. Assuming wild-man interviewer is @mpacatte. http://t.co/i5zPc7un via @kellenhenry</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">“@KateGardiner: Google Maps 8-bit for NES http://t.co/SabFzkjj #april1” it&#39;s gotta be the music that makes this so great.</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Media literacy, meet computer science literacy. What a natural combination. http://t.co/59K5UzLM</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@webjournalist Count me as an enthuisiastic supporter of: Learn Code for Journalism with Me. Code Year via G+ Hangouts http://t.co/46iNymNQ</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer As long as the weather&#39;s good, hit up Bacchanal first and then go around the corner to Vaughan&#39;s, maybe @kermitruffins will play</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@craigcook How soon do you think http://t.co/0wQF8KsO will be out could be a great class text, right @jamessocol?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jamessocol I love the idea of putting @craigcook to work -- if he&#39;s willing.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jamessocol Feel free to share at @craigcook&#39;s wisdom on this point.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer You are making me pretty hungry. Will it be like this all weekend? And are you going to @bacchanalwine on Sunday?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @andymboyle: &#34;The Globe Was The First Newspaper To Report A Story By Telephone.&#34; http://t.co/1522cnHF</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded business">
+            <p class="tweet-text">RT @JaneONA: I&#39;m hiring! Business Development/Sales Manager at Online News Association - Washington D.C. Metro Area #jobs http://t.co/mE ...</p>
+            <p class="tweet-category"><span class="cat-business">business</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @jeremybowers: The more time I spend with http://t.co/EKzKl0pN, the more I recognize its genius. Check the nerd post, too: http://t.c ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">A reminder of the value of exploratory science, a camera that sees around walls: http://t.co/KvtTS6ZG</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @mirandamulligan: STUDENTS! Apply now – one week left – for the student newsroom at #ONA12 http://t.co/uMggwRQz +@ONA12</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">&#34;What does it mean to love something on the internet today?&#34; http://t.co/yMcJz88X</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@webjournalist #ONA should count total votes, not just ups, for this #ONA12 session by @andymboyle &amp;amp; @gotoplanb http://t.co/YKCp47Ju</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @mthomps: If you have an iPhone, you&#39;re going to want to pick this up from the App Store now. Just trust me. http://t.co/4rkyNWHc</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer Local trumps Google, at least in some ways. I bet it breeds or reinforces loyalty.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer Google/national TV has commoditizied presidential results. The community, Trib, WBEZ, etc..., needs to go local, even with data.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattwaite loving the lab and the plots to be hatched over the workbench.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">RT @mirandamulligan: #ONA12 upvotes (as suggested by me): Design Is How It Works from @dwjr http://t.co/NbFiu2nR (yes. yessssss.)</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @gotoplanb: For the afternoon crowd, vote for @andymboyle and I for incorporating humor with news: http://t.co/pkMNIo0u</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">From @knightnewslab: Easy-to-use timeline tool for journos: http://t.co/6LYH9OrK, Created by #Medill&#39;s @ziwise</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded religion">
+            <p class="tweet-text">Thanks @mirandamulligan, don&#39;t miss #ONA12 precon trip to Stanford&#39;s D school: Human-Centered News: The Next Evolution http://t.co/YoR92RUN</p>
+            <p class="tweet-category"><span class="cat-religion">religion</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">My polling place had a 5:1 workers to voters ratio. #BigIllinoisTurnout</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer lots of flights to Austin. Not too late to @mattmansfield  @kategardiner @lizzkannenberg and I.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@lizzkannenberg @KateGardiner and @mattmansfield are @brianboyer thought #Yale was more exciting than Austin.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@littlenurita oh Nurita how could I miss you?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @CindyRoyal: Developers working on @pilhofer&#39;s desk are all journalists. This is key #stories #sxtxstate</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">Clarification: QT How Designers Can Imagine Innovative Technologies for
+    &#39;Journalists&#39; (not News) http://t.co/CblEdETg @futurism</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">#Medill and #UF alums don&#39;t forget to meet up at the Gingerman (3rd and Lavaca) at 9:30pm.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@Journerdism see you at Gingerman at 9:30pm for the #Medill meetup (others welcome)</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @ShitSXSWpplsay: We need to make an uncool party. #shitsxswpeoplesay</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">RT @MedillSchool: TONIGHT: #Medill meet up at #SXSW! Look for @mattmansfield and @jeremygilbert at The Ginger Man (301 Lavaca) at 9:30 p ...</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattwaite sounds like the challenge San Francisco has with its parking sensor system. What&#39;s the most compelling sensor-based story?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattwaite isn&#39;t scale what programming solutions are best for? If you can manufacture enough sensors shouldn&#39;t the cross correlation work?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattwaite I&#39;d love to combine traditional reporting on crime or traffic with sensor-based news like traffic flow or driver aggression</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">RT @omarg: &#34;I actually still get all my news from D.L. Hughley.&#34; -- Rory Albanese. &#34;Daily Show&#34; exec producer. #SXSW #PoliHum</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@KateGardiner Seems worth a try. Tomorrow night? Today? Meeting up at @austincaravan sounds pretty good.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@KateGardiner Is there a #SXSW #Medill meet up? If not, want to pull one together?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @knightnewslab: Among a slew of great partners (@evanstonnow, @chicagotalks, @suntimes), the latest is @progressIL. All are using our ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @knightnewslab: Want to learn about new ways to cover elections? HackHackers Chicago hosts a discussion on that very topic tonight: h ...</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">I-55 in heavy traffic: An SUV suddenly stops in front of a MegaBus. Out pops a girl, scattering bags as she runs for the bus. #HotRide</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded healthy-living">
+            <p class="tweet-text">RT @kpark505: Follow along as @nbn_tweets charts a dancer&#39;s activity, heart rate and calories burned/consumed... block by block at #NUDM!</p>
+            <p class="tweet-category"><span class="cat-healthy-living">healthy living</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @michelleminkoff: Track where tornados have hit, learn more about them via video, and more in an @AP_Interactive: http://t.co/OlmemsX7</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">Sadly, there are many Jeremy Gilberts in the world: “@Liberationtech: ... Prof @JeremyGilbert &amp; … reflect on UK&#39;s student movement…&#34;</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mirandamulligan I bet we could dig up some interesting students for a summer at the Globe. Any NU hacker journos interested?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @mirandamulligan: Do this!!! MT @marstall: SUMMER INTERNSHIPS: Boston Globe&#39;s @GlobeLab hiring 2-3 news-minded hackers for nextgen wo ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @mirandamulligan: Less dependence on software! RT @mattwaite: If you are teaching tools and not skills, you are doing it wrong. Teach ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @DrMarioRGarcia: Tablet beginning to pay off for magazine publishers, says Adobe; TheMarioBlog; http://t.co/7ShIpVxN</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Hard to top this welcome for @HarperRovell: “@lancearmstrong: Congrats to Mr and Mrs @darrenrovell on their new arrival!!”</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @NU_Sports: #MedillSports When stories stop being sports, how to cover? @PeteThamelNYT: To cover sports spend a summer on cops/court  ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">QT @MedillSchool Watch the college sports and the media right now at http://t.co/VWZ8gJ48 #MedillSports”</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @MedillSchool: Questions for &#34;Covering College Sports&#34; panelists @slmandel, @PeteThamelNYT, @CoachFitz51 or @Rachel__Nichols? Ask the ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Designed a brilliant digital media product? Enter it now! Today is the deadline for SND Digital Design Entries: http://t.co/P6ziaSkh</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">I wouldn&#39;t have guessed, according to CAE Northwestern raised less money last year than fellow B10 schools WI, IN &amp; MN: http://t.co/dxV0uYOm</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@scalkins3 That following issue is now corrected. Do you follow at @vkrueger a fabulous editor?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @JoeGermuska: prime for arguments: typographic logos for every Chicago neighborhood http://t.co/IurmiGRk /by @ChgoHoods /via @brainpicker</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">Has a punter won an MVP? Weatherford deserved it.</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@darrenrovell The NFL has in-sourced journalism, the magazine/network why wouldn&#39;t they take over jerseys? What&#39;s next NFL-brand hotdogs?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@benhuh says: You can either be in the journalism business to make money or to do good. But don&#39;t plan on doing both.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @ezraklein: Are you a politics-obsessed software developer? A wonky mobile-interface genius? Then come work @WashingtonPost! http://t ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @gotoplanb: Collaborative workspace that looks like a cafe -- you&#39;re doing it wrong. Gimme some standing workspace, yo!</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jkusunoki I was just thinking of you today as I talked to a Peruvian journalist about design issues.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@DaniFankhauser Great question. I know @benhuh will be recorded on video, maybe live streamed. I bet @medillschool will live tweet</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">Looking forward to hearing @BenHuh talk about “The Next 5 Years of Journalism vs. The Next 25 Years of Journalism.&#34; NU &amp;gt; Fisk 111 at 3PM CT.</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">Overheard at #Kellogg, &#39;What is a hash tag? The pound sign? Wow, you really know your stuff.</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @jeremybowers: When people find out I&#39;m a debate coach, they think Presidential debates like Reagan or Gingrich. They would be wrong: ...</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @knightnewslab: We&#39;re excited to release details on our Congressional Primaries project: http://t.co/EYYHmHSn #illinois #primaries #m ...</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @abraford: I&#39;ve been reduced to cheering for teams from Boston and New York. #evil</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">The secret to writing like Michael Chabon is to make really, really long lists of just about everything. #ManhoodForAmateurs</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">“@darrenrovell: … if you&#39;re a great traveling bowl school, what does it tell you when Stubhub is cheaper than face?” TOO MANY BOWL GAMES.</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">“@andymboyle: It turns out when you read the docs you actually learn how things work. WHO KNEW?” That kind of heresy has caused schisms.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">The #Medill / #Hinge team&#39;s design is very much a result of the usability testing. Glad #Medill is focusing on users. #MediaProductDesign</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Watching the #Medill Magazine Project team discuss their iPad historical magazine concept:#Hinge -- http://t.co/fQ0GpgfI</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @JoeGermuska: &#34;OH Gov Kasich stated…that he rarely reads…newspapers. “Reading newspapers does not give you an uplifting experience…&#34;  ...</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">RT @jasonfried: I haven&#39;t felt this confident about a design since I threw out the last design I was this confident about.</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">RT @rachelaguiar: My intern, @Blockless, after watching an &#34;Our First Loves&#34; video in class: &#34;You had such a promising journalism career ...</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@nicolerwise I developed these collaborative courses about 3 years ago. We&#39;ve run 5 #JournTech classes do far. Let me know if you have Qs?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded religion">
+            <p class="tweet-text">RT @designhawg: so you say you wanna evolution… http://t.co/R1bwJz87</p>
+            <p class="tweet-category"><span class="cat-religion">religion</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@derekwillis Thanks for watching the presentations today. @kpark505 definitely designed HamTracker with your advice in mind.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @MedillSchool: Watch live as students from #Medill and @NU_McCormick present their final #JournTech presentations: http://t.co/vZXyfRVJ</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle Congrats on the stage appearance. How different was it then performing at a front-page news meeting?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @juliemmoos: Romenesko resigns after 12 years at Poynter: http://t.co/7GPzuoDW</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">RT @andymboyle: So we&#39;re going to rename @Romenesko after @myersnews, right? Because he&#39;s awesome. I want to tell people &#34;I already read ...</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Help @shawnobanion figure out what news stories you would ACTUALLY want to read by filling out this quick survey: http://t.co/udRmabk8</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">Was Boca mad that the 99% was getting all the attention?: “@amy_hollyfield: Boca Raton picked as site of final 2012 presidential debate...”</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">RT @brianboyer: @mirandamulligan Psst. You don&#39;t have to be embarrassed for me anymore. We got gfx to help: http://t.co/EpisdfWd</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Not sure if you&#39;re responsible @tysone, but I love the redesigned #NYT homepage.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @gotoplanb: RT @johnwlong: It&#39;s hard to compete with Apple: http://t.co/uwn9RN0x</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb: @kpark505 You&#39;ve sworn by Code Igniter in the past. What makes it so easy to use?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">#Jealous: “@gotoplanb: @jeremybowers http://t.co/HU5Er37Z”</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@lesliepassante Great point. I should not dismiss the source. I hope you&#39;re taking good care of @eschow while she&#39;s in your charge.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@greglinch Sounds pretty good. Did you use the learnable tutorial?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb The answer is a little bit of both. @kpark505 does knows some Python, CSS, HTML and Javascript.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Thinking about this. @gotoplanb or @jeremybowers  any thoughts? RT @kpark505: what&#39;s your fav PHP resource (for beginners or reference)?</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">RT @YoungOwen: ‘Biophilia’ by #Bjork: An Album as Game (well, a set of apps): http://t.co/hGEMNndP</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">Where does he get the energy? @JonathonBerlin is tweeting while he runs the St. Louis marathon.</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">I like the idea of Independent coffee shops and I&#39;ll pay $5 for a cup, but I draw a line at paying for WiFi. Really? http://t.co/nAv5ZDel</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded business">
+            <p class="tweet-text">Medill Alum Mackenzie Warren turns football analyst: http://t.co/jkDV0xZk</p>
+            <p class="tweet-category"><span class="cat-business">business</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded business">
+            <p class="tweet-text">Glad to see Jerry the Bear with a (web) home of his own: QT @hchung and @design4america: New Jerry the Bear site: http://t.co/0bxmBnHF</p>
+            <p class="tweet-category"><span class="cat-business">business</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Could Flash be trying to save me from SkyNet? Maybe my pro-standards approach is wrong. Flash isn&#39;t trying to stop me from using an abacus.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">The latest MacBook Pro have plenty of processing power. Why is it only Adobe&#39;s Flash Plugin is capable of bring a machine to its knees?</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">RT @yurivictor: Apple&#39;s Newsstand increased digital magazine sales 750%, says publisher http://t.co/QCxvBRhN</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jeremybowers I was pretty sure the MAMP standard was only developed to make it easier for @gotoplanb to teach Python. Was I mistaken?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">What about REAL accessibility: @Poynter: &#34;How accessible are journalists?&#34; Surveyed news sites looking for contact info http://t.co/3T3DGLPq</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">RT @darrenrovell: Things that make you feel old: Jonathan Lipnicki, kid in &#34;Jerry Maguire&#34; turns 21 on Saturday (H/T @collbaseball)</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">RT @ProPublica: Attention young muckrakers: we&#39;re looking for reporting interns for this spring and summer http://t.co/MpkyocGr</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">Just got the latest printed copy of the Atlantic. So thoughtful. So far behind. Brave Thinkers of 2011 include Steve Jobs and Rex Ryan. #sad</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@CindyRoyal Thanks Cindy. @jacquiemarino enjoyed collaborating on the article but also on the class design. We should expand our circle.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">Very excited to see the next chapter in the Helvetica, Objectified design trilogy. (@ Music Box Theatre for Urbanized) http://t.co/wsEzhu0K</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">I call this still life: &#39;Disappointment at Ikea&#39; http://t.co/l2DuGQpE</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @meg_e_martin: &#34;It’s technology married w/liberal arts, married w/the humanities, that yields us the results that make our heart sing ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">NU and Chi History Museum teamup: Great Chicago Fire iphone app available now http://t.co/OmfdwZij”</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jeremybowers @andymboyle Great point. There have always been advocates like @wilsonminer who blended aesthetic and user-centered design.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle @jpgillin @michaelkruse  Jobs was incredible in how he extended his high standards &amp; sense of taste throughout a huge org.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded healthy-living">
+            <p class="tweet-text">I had to get older to understand accessibility: RT @andymboyle: more proof as to why your body text shouldn&#39;t be 12 px: http://t.co/GcCfsrLq</p>
+            <p class="tweet-category"><span class="cat-healthy-living">healthy living</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@andymboyle @jpgillin @michaelkruse -- I agree. Inventing &amp; making happen are different. Great things are invented but overlooked often.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jpgillin @michaelkruse I would argue that differentiating Steve Jobs&#39; legacy helps us value all that he did, not just the things he made.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@Journerdism The Likert scale is a pretty established scientific norm and it&#39;s 1-5. That would be my suggestion.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">RT @brianboyer: Demos, not memos.</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @AEJMC: 5 tips for getting started in data journalism http://t.co/MU6CIUH8 via @poynter #journalism</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @jamessocol: Watching old iPhone 4 ads is making me tear up. http://t.co/EUe2Hn80 Steve Jobs changed what Human-Computer Interaction  ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">For designers not already following @ymalina, one of the best young designers, you will after this: Failure (1/2) http://t.co/7lnCW8wZ”</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @craignewman: RT @ihnatko: I got my iPhone fixed today. That process now reminds me how special Steve Jobs was. http://t.co/wNeD2Ty5…</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded business">
+            <p class="tweet-text">In many ways Steve Jobs was the P.T. Barnum of our era -- as much or more than Thomas Edison. He was the consummate corporate pitchman.</p>
+            <p class="tweet-category"><span class="cat-business">business</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded business">
+            <p class="tweet-text">Steve Jobs set standards of taste that few CEOs could even imagine. Thanks for making &#39;Design&#39; an important word in consumers&#39; vocabularies.</p>
+            <p class="tweet-category"><span class="cat-business">business</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">Here&#39;s going to need it: RT @AabhaRathee: @jeremygilbert This is coming your way on first birthday: http://t.co/VJjUfyYQ</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Love it: RT @fabianohtl: @jeremygilbert in a hackathon here at #ona11, a group came up with PDFSpy--which monitors gov docs for changes!</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">Seconded: “@gotoplanb: @Journerdism @SaraQuinn Wish I was there with you.”</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@DanielLibit My takeaway would be that sports investigations are different from everyday beat coverage. It requires different skills/values.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">RT @eyeseast: Says @jeremybowers: &#34;Any of you out here can make internet.&#34; #ona11</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@CJR looks at the cost sports scandal reporting: http://t.co/rStd3km4 -- another facet of ethical sports investigations: bit.ly/q22Z2D</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Don&#39;t miss free, great training: @gotoplanb: Slides/code/screencasts from #ona11 workshop w/ @andymboyle &amp; @hbillings http://t.co/fQ0PVXfC”</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @gotoplanb: Slides, code and screencasts from my #ona11 workshop w/ @andymboyle &amp; @hbillings http://lts.cr/xOh</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @brianboyer: And @derekwillis calls out news organizations for not hiring data scientists. We don&#39;t get it, and our coverage shows th ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">RT @timesopen: New York Times Ad Lab Challenge, competition to use APIs in the service of advertising, is underway: http://t.co/aeLcw6ib</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@michelleminkoff there are some innovation project students who might need some of your fusion table to map guidance.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @Bill80: Tablets have gone from 0 to 20 percent in mobile market in one year. (reporting from magid download at tribune today)</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded religion">
+            <p class="tweet-text">Modern sports coverage is often confronted with scandal. See how this reshapes the values of sports reporter: http://t.co/eoLjewkM</p>
+            <p class="tweet-category"><span class="cat-religion">religion</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @kaylawebley: Why shouldn&#39;t parents get an email that says, your kid didn&#39;t understand the math lesson today, here&#39;s one you can do a ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded world">
+            <p class="tweet-text">RT @abtran: &#34;Dreamweaver is like having weapons or snakes in your house… It&#39;s so easy to do terrible things with it.&#34; @gotoplanb #ona11</p>
+            <p class="tweet-category"><span class="cat-world">world</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Glad to see @kzhu91 is learning from @gotoplanb, it&#39;s almost worthy her missing so many of my classes.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded religion">
+            <p class="tweet-text">#KenBurns those in favor of prohibition thought it would solve ALL society&#39;s problems. Instead it was standing room only in hell!</p>
+            <p class="tweet-category"><span class="cat-religion">religion</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @Poynter: News apps should solve daily problems, not give us more to read: http://t.co/So3YWLe7 App is short for application, remember?</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">#kenburns discussing his new film #Prohibition at #Medill, putting an interesting context on current political strife through historic lens.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@zeldman Praises the new HTML5, responsively designed, standards compliant Boston Globe site as a good first step: http://t.co/bBfkT4zA</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">RT @tysone: Lest you forget: there are a tremendous number of job openings out there http://t.co/ot4I5fAF</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">ature@pwallen You could use Google Voice to record a call. Not sure if the iPhone App will do it.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">RT @DrMarioRGarcia: Tip 5: Design in a way that brings a sense of order, peace and relief to readers in a chaotic world; TheMarioBlog;   ...</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @10000Words: How Does the Internet of 1996 Compare to 2011? [INFOGRAPHIC] http://t.co/BqcMLRJ</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @myersnews: YouTube&#39;s thinking of launching an investigative journalism service w/Center for Investigative Reporting http://t.co/cs95 ...</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @DrewCurtis: Got an email asking if I took down a Fark link due to Chinese govt pressure. After I stopped laughing, I decided it was  ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">RT @darrenrovell: Guests on tonight&#39;s&#39; &#34;Sports Biz: Game On:&#34; Roger Goodell, Packers CEO Mark Murphy, NFL agent Joel Segal, GoDaddy CEO  ...</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@darrenrovell Congrats on your new show: #CNBCSportBiz you need to nudge DirecTV to update the programming guide. I cannot set the DVR yet.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded impact">
+            <p class="tweet-text">RT @jeremybowers: @eschow I know @onyxfish and the rest of the @tribapps team will miss you. All the same, glad you&#39;ll be @washingtonpost.</p>
+            <p class="tweet-category"><span class="cat-impact">impact</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Looking forward to a day spent pondering Human Centered News in the service of Education. #HCNews http://t.co/DetdQi9</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">This Chromebook might be a much better netbook. Fast &amp; light, but not a MacBook replacement but with an SSH client... http://t.co/cFCDnYH</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @gcstaublin: Dear free daily newspaper, using the words &#39;iquit&#39; in your steve jobs resignation story is not clever. It&#39;s just bad hea ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">It&#39;s time for Apple to admit the new scrolling in Lion is just done to force you upgrade all your computers at once. #NowThatSteve&#39;sGone</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @nytgraphics: Also published today: New version of our new hurricane tracker. http://t.co/7bbGdYz</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattwaite Dare I ask what you will do with all the scientific equipment? Remember to use your powers for good.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @pwallen: Droooool. RT @BizWeekDesign: NEW COVER! Now About that Oil ... Illustration by David Foldvari. http://t.co/8EUSuCy</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">It&#39;s been years since I was a regular /. reader, but Cmdr Taco will be missed, &#34;Rob Malda says goodbye after 14 years&#34; http://t.co/9YFfYaq”</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">RT @jodiontheweb: Screenreach announces first major US deal, with NSCAA Game of the Week on FOX Soccer http://t.co/kCR8aeM</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">Why would you child be reading anything else? @davewrightjr // htmlforbabies » bit.ly/oaN4ke”</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">#AbroadView Medill grad student team is off to a great start. Join us to see the digital mag &amp; responsive web design: http://t.co/knFhIcL</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @AbroadView: Presenting the new Abroad View magazine TODAY @ 10:00am CST! Watch live at this link: http://t.co/ErFyofx. #travel</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @patwalters: New @wnycradiolab, at long last, is waiting for you in your iTunes! Games and sports. Stories of crazed fans, underdogs  ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">I&#39;m at McCormick Tribune Center (1870 Campus Drive, Evanston) http://t.co/BjVRarA</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">It&#39;s never too early to vote for a great #SXSW panel on #mediaUsability: http://t.co/uFI7THg</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@genemoy I knew I was ahead of my time. #JuhnMaing was a very good sport about that. Not many Vianteers would have actually used it.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">After it took #Apple 4 days to replace a broken hard drive (2nd in 1 week) it has taken 20 minutes for the 3rd drive to crash. #fedup</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@eschow is always stirring the pot, @kpark505 and I will be fine.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">#LarryDailey makes teaching usability infinitely more fun. Paper prototyping as improv. Fantastic!</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @CindyRoyal: &#34;Students need to become self-learners. I won&#39;t be there to help them forever&#34; Amen! #aejmc11</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mayerjoy brings so much energy to everything she does. Make your students think like movie makers. #aejmc11 #viscom</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @michelleminkoff: Today&#39;s coding lessons focus on finessing colors and design.  My new favorite site for helping generate schemes: ht ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kpark505 I think we need to talk about what &#39;favorite&#39; means. #PossibleFormerFavoriteProfessorOfKatiePark</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">RT @ryanmark: CSS shapes! http://t.co/4THZBSf</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Knight and AEJMC announce grants to
+    implement news challenge software in journalism teaching. #aejmc11</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">#aejmc11 Come join the Visual Communication Division&#39;s annual member&#39;s meeting in Landmark 3! #viscom</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">Great talks about role of political imagery. @bagnewsnotes makes me think about imagery of POTUS &amp; candidates in new ways #aejmc11 #viscom</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">Looking forward to learning more about the relationship between images and captions. Join me in the Benton room #aejmc11 #viscom</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@sisiwei you say &#39;broken&#39; I say defective. I agree with @kpark505 I have rotten luck and unrequited loyalty. @eschow is right SSD is a must.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded healthy-living">
+            <p class="tweet-text">It&#39;s crafty of Steve Jobs to keep selling me spinning platter drives that fail. Two dead drives in 4 days, I get SSD. http://4sq.com/nvutaQ</p>
+            <p class="tweet-category"><span class="cat-healthy-living">healthy living</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kpark505 But you are the &#39;hardcore-web developer, designer&#39;...</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@USPSConnect How can it take 7-10 business to get my mail sent to a new address? Especially since the info is stored in a database!</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @mattmansfield: RT @SND: iPad users: Take RJI’s 2011 iPad news survey! http://bit.ly/qgqRld Designers: Come to @SNDSTL for results: h ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@irasocol The print papers (NYT, WaPo, etc...) do have Edu reporers. I can&#39;t explain the NYT but the WaP did cover it: http://wapo.st/omi1sv</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@evanatwired: Web has to take account of mobile -- just as newspapers once had to take account for the web.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @kzhu91: &#34;Just cause you have tech doesn&#39;t mean you stop the business of trade craft we&#39;ve learned in j-school.&#34; #preach (@evanatwire ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@irasocol There may be nefarious motives, but sadly I think there are just fewer journalists chasing others stories, like the debt limit.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded healthy-living">
+            <p class="tweet-text">RT @mallarytenore: @Mthomps lists 10 questions (&amp; related tips) to help you write better headlines: http://journ.us/p6h4CA</p>
+            <p class="tweet-category"><span class="cat-healthy-living">healthy living</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">RT @_superted: -webkit-tap-highlight-color
+    Use to highlight a touch gesture. It&#39;s amazing what you find deep within the safari documenta ...</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Also from @evanatwired: Community and conversation are the future of news. Social media is just community with new tools.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Did you know, from @evanatwired: In the last year mobile traffic for Wired.com went from 2% to 15% and iPad is biggest source!</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @jamessocol: An Ode to Web Standards, by Microsoft of all people! http://t.co/joIfo9R</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jkusunoki I forgot you were a big fireworks fan. I should try it again. When I last used it I was comparing it to #Macromedia offerings</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">...Fireworks renders type so badly that putting it in HTML is a pleasant surprise.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">And finally from @IA: The trouble with Indesign is that it renders text so beautifully...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">More from @IA: HTML is a better design tool than anything else out there.</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">More from @IA: &#39;Paper is for sketching idea; the rest should happen in your real medium.&#39; #MoJO</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@IA explains: User interface is not eye &amp; screen, it&#39;s head &amp; hand. News design is not about shaping surfaces but complex processes. #MoJo</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">Might be my last water taxi ride of the summer - no wonder it&#39;s raining. (@ Shoreline Water Taxi (Erie)) http://4sq.com/qupiR5</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @mattmansfield: Check out this year&#39;s @timesopen topics - http://nyti.ms/ItvZ - Keep an eye out: Registration for the Aug. 16 event o ...</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded politics">
+            <p class="tweet-text">RT @pattycox: 127 years ago today @StPeteTimes first published as the West Hillsborough Times and was produced in the back room of a Dun ...</p>
+            <p class="tweet-category"><span class="cat-politics">politics</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @andybechtel: Why we need editors. RT @designmah You can&#39;t just throw text and graphics together and call it an #infographic. #justsaying</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Roku beats AppleTV to the set top casual gaming market: http://t.co/ETWFPus #NoFirstMoverAdvantage</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @kpark505: Pro tip: When pulled over for letting your 11-year-old drive, do not call deputies &#34;illiterate Southerners&#34; or &#34;dumb&#34; | ht ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @brianboyer: RT @mirkolorenz: What I like about the Guardian @datastore - they just do it: All of our data journ. in one sheet http:/ ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded world">
+            <p class="tweet-text">RT @A_L: Tonight at @hackshackersnyc: &#34;What is the future of stories?&#34; with SBNation and The Economist http://j.mp/qPLntM</p>
+            <p class="tweet-category"><span class="cat-world">world</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb turns out JQuery founder @jeresig is a big fan of Node.js too.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">RT @reaganbranham: Design Remembrance: Hogwarts Through the Years. http://t.co/tphZD7l via @apttherapy</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @brianboyer: RT @jeremybowers: Fresh squeezed, from me to you: 5 principles for assembling a news apps A-Team. journ.us/p5HUaq</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">RT @tysone: The @nytimes has many openings for full-time, contract and freelance design/dev jobs. HTML/CSS/JS/Ruby. Ping us with recomme ...</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Pleased that @Nesgilbert will finally arrive. Thanks #AmtrackDelays (@ Chicago Union Station w/ 25 others) http://4sq.com/nCaXqy</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">It&#39;s not as exciting as Medill&#39;s #Headliner news game, but just a little bit more complete: http://bit.ly/pRsUhN #NewsGamification</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">RT @kleinmatic: RT @knowtheory: Amanda Cox of the NYT talking live, feel free to join: ow.ly/5FsNd code is &#34;glassworks&#34; gonna be cool!</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@darrenrovell Does imminence of the NFL that mean I should rush and sign up for DirecTV before the Sunday ticket costs money again?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">Watching @sweetride argue with Chicago&#39;s finest. I just want cupcakes. (@ Sweet Ride Food Truck) http://4sq.com/oOHx5z</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">RT @brianboyer: Tonight in sunny Evanston, Illinois: Journonerds, on film! http://bit.ly/rsOfb0</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @abraford: WSJ.com - A Stadium&#39;s Costly Legacy Throws Taxpayers for a Loss http://t.co/tVSQlrS</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @reginajmc: Wanna learn to build news apps? Join me, @pilhofer, @jfkeefe @Poynter: http://bit.ly/milqFF. And @ONA members get 30% dis ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@chicagoan Lots of possibilities with new computers -- presuming you end up using it for more than web surfing... always a question.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@kzhu91 and are in, any other #Medill people participating in the Knight-Mozilla learning lab? #MoJo</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Set your DVR: Watch @refugeelives on the Big Ten Network Wednesday (July 13) at 1pm ET -- a video documentary #Medill refuge reporting trip.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @andymboyle: New blog post. Hey journalists -- here&#39;s why you should learn to make the internets: http://t.co/QUbSoO9</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">I love the Chicago city view from the Midway-bound Orange line. #SouthSideAdvantages</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">What am I up to? Why beer-cheese soup followed by the Rachel Ray-endorsed Big Cheese sandwhich. When in Wisconsin... http://4sq.com/qpJfVw</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @Journerdism: OMFG. RT @Photojojo: Use Canon &amp; Nikon SLR lenses on your iPhone with our iPhone SLR adapter! http://j.mp/nBIkp9</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">RT @andymboyle: NOOOOOOOO! BUTLER&#39;S BARBECUE IN ST. PETE HAS ALLEGEDLY CLOSED! NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@BrentDPayne Congrats on the move. I bet you will be missed at the Tower.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@designhawg Signed up for @vizualizeme -- the idea has lots of potential. Sign up now: http://t.co/882aBCF</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @myersnews: News sites could end the memory hole parlor game by showing users previous versions of stories, but they prob won&#39;t http: ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">RT @GrammarGirl: My 101 WORDS books are out! Tell me what word you misuse the most. One person who responds by 7/9 will win a book. http ...</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@ChiTribCS Very frustrating: Can&#39;t log into the website to change address. Called &amp; was told that my new address is not valid.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@brianboyer River North is glad to have you back and the #Shoreline water taxi will welcome another passenger.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@JoeGermuska Only in town for the night. Next time I&#39;ll make sure to swing by. Too bad I missed it this trip.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@chicagoan How&#39;s the new computer working for you?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@rohrrr The @JGilbertMedill address is just for classes but feel free to follow me here.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">Ruben here I come. (@ Slyman&#39;s) http://4sq.com/kxvJK0</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @MedillCherubs: Happy Social Media Day from all the Medill Cherubs! #smday</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">If #IDEO methods can help get the Social Security Agency on track, imagine what it can do for you: http://bit.ly/moO3P3 #DesignThinking</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattmansfield The math on the Google +1 extension is funny. I click once and it goes from 0 to 1. Click again and its back to 0 #GooglePlus</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @A_L: I&#39;ve got a new thing up at @propublica: The Opportunity Gap: compare access to education in states, districts, &amp; schools http:/ ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @kleinmatic: New news app! The Opportunity Gap: Does your state provide equal educational access? Data on 55,000 schools nationwide.  ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@hamman At least Google+ offers an opt out on that &#34;Google may use my information to personalize content and ads on non-Google web sites.&#34;</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@KaseyCrabtree Great meeting you, let&#39;s keep talking sounds like our interests overlap on several things. #Northwestern</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@NUCatsNEOhio Thanks for inviting me to Cleveland. A great turn out and it was nice to the #PlainDealer again too. #Northwestern</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@JeffDGorman Great meeting you at the #Northwestern event last night. Let&#39;s keep in touch.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Thanks Apple Keynote Remote. You are officially the only app I have that only works when I don&#39;t need you. http://4sq.com/mCHKcI</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">Could Mario be more right? RT @TweetsbyDesign: Storytelling does not necessarily involve JUST the article... http://tinyurl.com/3zgvz38</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">A well-written ode to Steven Holl’s latest Chinese office park: http://nyti.ms/mLpAeK -- notice no one writes this about newspaper redesigns</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jtemplon If I don&#39;t use something to hold up my Dock icons slide off. Maybe I should go back to pinning it to the bottom. #SafariBookendOSX</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jtemplon I&#39;ll have to give it try. Firefox has some many great plugins: Firebug, Web Developer Toolbar, MeasureIt, YSoSlow...</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">Looking forward to seeing NU Alums @NUCatsNEOhio. See you at the Cleveland Plain Dealer tomorrow night. #Northwestern</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@jtemplon I just cannot commit to one browser. Still like #Firefox for development debugging, but not sure where to use Safari. Bookend?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @brianboyer: RT @tribapps: Don’t break the homepage! Using unit tests to validate your WordPress + Varnish caching strategy http://ff ...</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Now that I&#39;ve done it I cannot remember why I waited so long: Google Chrome is my default browser. Sorry Safari you crash/lag too often.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Thanks Google: RT @designhawg: ru-ro, someone doesn&#39;t like adobe either? RT Google makes converter for .swf to HTML5. http://bit.ly/jkOKaY”</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @mattmansfield: Exciting. RT @ONA: Announcing $200,000 grant to @ONA from @knightfdn to develop biz/techpartnerships http://bit.ly/lQ ...</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@rahelsolomon I hope you and your fellow fellows are still working on those mobile apps. Let me know if I can do anything to help. #maynard</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">I&#39;m at Shoreline Water Taxi (Erie) (Chicago) http://4sq.com/lEtSo7</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded food">
+            <p class="tweet-text">RT @pilhofer: Also, a hearty congrats to @jonathanstray, @brianboyer, @rthorn and all the other winners in this year&#39;s #newshallenge!</p>
+            <p class="tweet-category"><span class="cat-food">food</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded college">
+            <p class="tweet-text">Too bad the #NYT couldn&#39;t site media examples but #SocialEntrepreneurship is something recent grads should consider: http://nyti.ms/kscuBj</p>
+            <p class="tweet-category"><span class="cat-college">college</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">RT @mirandamulligan: Google doc. Thanks. RT @harrisj Update on media orgs looking for #programmer-journalists. There are 17+ #job listin ...</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">Thanks @andybechtel, @mattmansfield and @gotoplanb for some great journalism portfolio ideas.</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Someone out there must have some good examples reporter/copy editor online portfolios. @andybechtel or @gotoplanb any ideas?</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">RT @mattmansfield: .@Gannett announces 700 newspaper layoffs http://bit.ly/kQC1hv via @newscuts</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded style">
+            <p class="tweet-text">Looking for some links: Anybody know great portfolio sites for reporters? Turns out I usually only look at designer sites.</p>
+            <p class="tweet-category"><span class="cat-style">style</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@eschow Trying to put back together the plant you gave me. It took a nasty spill on the porch during the storm.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@agenttrav  Rush out to the nearest water taxi stand. Can&#39;t think of a better way to get to work.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded travel">
+            <p class="tweet-text">It&#39;s taken almost two years but I&#39;m finally taking the water taxi to work. (@ Shoreline Water Taxi (Erie)) http://4sq.com/mSifXO</p>
+            <p class="tweet-category"><span class="cat-travel">travel</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Help me rethink broadcast news in a tablet environment. I need your votes for the #MoJo Challenge. Vote today: http://bit.ly/Mojo-Newscaster</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">Fight skin cancer, bring your iPad to the beach. The iPad&#39;s temperature sensor will go off long before you need to reapply sunscreen.</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@eschow glad to see you are right at home with @tribapps and -- selfishly -- not upset @brianboyer was in Miami having lunch with me.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@Bill80 Looking forward to seeing the new ChicagoTribune.com as it debuts today. Anything exciting we should expect?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">A really thoughtful explanation of how to find a the love of code: http://bit.ly/iXq2eW</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded media">
+            <p class="tweet-text">RT @Poynter: Outstanding reporting by @brianstelter &amp; Bill Carter on how battle btwn ABC &amp; NBC may be amping up checkbook journalism htt ...</p>
+            <p class="tweet-category"><span class="cat-media">media</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded sports">
+            <p class="tweet-text">RT @darrenrovell: The Marlins are nuts if they think their new stadium is going to draw a crowd. Honeymoon periods w/new stadiums are over.</p>
+            <p class="tweet-category"><span class="cat-sports">sports</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@myersnews NYU student&#39;s topographic keyboard  visualization http://bit.ly/jTsY85 is cute. Sadly, my white keyboard shows it in other ways.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded arts">
+            <p class="tweet-text">And check out (and vote for) other #MoJo #Medill-submitted projects: http://bit.ly/lSXjxA and http://bit.ly/lMqPcJ and http://bit.ly/k6mlRa</p>
+            <p class="tweet-category"><span class="cat-arts">arts</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">The #MoJo Innovation Challenge virtual voting booth is now open. It&#39;s never too late to vote for Newscaster (http://bit.ly/Mojo-Newscaster).</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@michelleminkoff Hang in there. You will surely be missed at #IRE11 but I&#39;m sure #IRE12 will be even better.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@NUCatsNEOhio looking forward to a Cleveland visit and a chance to talk to your chapter. Only three weeks to go.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">Preach the word: RT @andymboyle: Pair coding FTW! Got done in an hour what would&#39;ve taken maybe four.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@SBAnderson Thanks for the kind words about Living Stories. #medill&#39;s @philbencomo and the entire #northwestern student team were great.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb I keep meaning to add more friction to our projects so it&#39;s easier to see what&#39;s happening. Kind of like more cowbell.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb  #LivingStories rethinks the telling of any ongoing event in words or pictures. The other winners tell discrete stories.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@gotoplanb First or third, I&#39;m glad to see that @AEJMC #BestOfTheWeb recognizes storytelling systems not just tools.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Medill&#39;s Collaborative Innovation presentation is underway. Five exciting journalism/technology projects, watch live: http://t.co/NDd1vfW</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@ryanmark the presentations get started in the forum at 7:30pm. I hope to see you there.</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">Also check out Medill&#39;s Christen Carter and her Mojo challenge entry: http://bit.ly/lMqPcJ</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded entertainment">
+            <p class="tweet-text">Be on the lookout for our Mojo challenge entry (http://bit.ly/Mojo-Newscaster ). Good team effort with @kzhu91.</p>
+            <p class="tweet-category"><span class="cat-entertainment">entertainment</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">Just barely made the deadline for the Mojo challenge. I had pushed my &#39;Media Design Research and Testing&#39; students to enter, hope they did.</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded business">
+            <p class="tweet-text">Why is it that companies like #Vonage announce they are raising your rates and then -- if you complain -- back track instead of just asking?</p>
+            <p class="tweet-category"><span class="cat-business">business</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded None">
+            <p class="tweet-text">@mattwaite what&#39;s the occasion that you&#39;re gracing the fair city of Chicago?</p>
+            <p class="tweet-category"><span class="cat-None">None</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded technology">
+            <p class="tweet-text">RT @veen: &#34;Every new technology nibbles at what we believe it means to be human.&#34; 
+    — @kevin2kelly</p>
+            <p class="tweet-category"><span class="cat-technology">technology</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @kansasdotcom: Eagle photographer and reporter ride out the Joplin tornado: http://bit.ly/lJDya7 #joplin</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @andymboyle: Hey folks, @estenh set up this site to help with the Joplin tornado efforts. Please RT: http://bit.ly/jS1uwW</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded green">
+            <p class="tweet-text">RT @paultakahashi: The power of audio in visual storytelling is apparent in first-person video of Joplin, Mo. tornado: http://bit.ly/mBw ...</p>
+            <p class="tweet-category"><span class="cat-green">green</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">I would not have expected the Nook Color to be so popular: http://nyti.ms/malXTl but if it help magazines its worth exploring.</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded books">
+            <p class="tweet-text">Pretty soon kids won&#39;t remember a world without e-books. And soon students will refuse to buy books they can&#39;t search: http://nyti.ms/kFgH1Z</p>
+            <p class="tweet-category"><span class="cat-books">books</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded impact">
+            <p class="tweet-text">RT @brianboyer: Hey, Chicago! Who&#39;s your alderman?? RT @tribapps New map! Chicago&#39;s City Council: http://bit.ly/iYDGgv</p>
+            <p class="tweet-category"><span class="cat-impact">impact</span></p>
+        </div>
+    </li>
+
+    <li>
+        <div class="tweet rounded education">
+            <p class="tweet-text">I value historical preservation but if we are talking about an industry does there need to be financial value : http://bit.ly/kq0vI5</p>
+            <p class="tweet-category"><span class="cat-education">education</span></p>
+        </div>
+    </li>
+
+    </ul>
+  </section>
+
+
+<script type="application/javascript">
+
+$(function() {  
+    pieChart({
+        pushIn: function(n, label) {
+            // Slice de-selected
+            $('div.tweet:hidden').show();
+        },
+        pushOut: function(n, label) {
+            $('div.tweet:hidden').show();
+            $('div.tweet:not(.'+label.replace(' ', '-')+')').hide();
+        }
+    });
+});
+</script>
+
+</body>
+</html>

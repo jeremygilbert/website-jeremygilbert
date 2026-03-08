@@ -1,0 +1,19 @@
+<STYLE>
+
+a:link 				{ color:#000000 }
+a:visited		 	{ color:#000000 }
+a:active 			{ color:#000000 }
+a:hover 			{ color:#CCCCCC }
+
+.body 				{ color: #000000; font-size: 9px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; }
+.head 				{ color: #FFFFFF; font-size: 13px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; }
+.bodygray 			{ color: #999999; font-size: 9px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; }
+.bodyblue 			{ color: #6666FF; font-size: 9px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; }
+.bodybold 			{ color: #000000; font-size: 9px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; }
+.bodywhite 			{ color: #FFFFFF; font-size: 9px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; }
+.headwhitelink 		{ color: #FFFFFF; font-size: 13px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; text-decoration: none; }
+.bodygray 			{ color: #999999; font-size: 9px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; font-weight: bold; }
+.bodysmall 			{ color: #FFFFFF; font-size: 6px; font-family: Verdana, Tahoma, Arial, Helvetica, Geneva, sans-serif; }
+.italic				{ font-style: italic; }
+
+</STYLE>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQT NPR</title>
+<style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+<style type="text/css" media="screen">@import "themes/npr/theme.css";</style>
+<style type="text/css" media="screen">@import "extensions/jqt.bars/jqt.bars.css";</style>
+<style type="text/css" media="screen">@import "extensions/jqt.bars/themes/jqt/theme.css";</style>
+<style type="text/css" media="screen">@import "extensions/jqt.listIndex/jqt.listIndex.css";</style>
+<script src="jqtouch/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="extensions/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="extensions/jqt.bars/jqt.bars.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="extensions/jqt.listIndex/jqt.listIndex.js" type="application/x-javascript" charset="utf-8"></script>
+<style type="text/css" media="screen">
+#jqt.fullscreen #ui .info,
+#jqt.fullscreen #plastic .info {
+  display:none;
+}
+#jqt #about {
+  font-size:13px;
+  text-align:center;
+  text-shadow:rgba(255, 255, 255, 0.3) 0 -1px 0;
+}
+#jqt #about p {
+  margin-bottom:8px;
+}
+#jqt #about > div > div > p > a, h2 {
+  color:inherit;
+  font-weight:700;
+  text-decoration:none;
+}
+</style>
+<script type="text/javascript" charset="utf-8">
+var jQT = new $.jQTouch({
+  icon: 'media/img/npr.png',
+  icon4: 'media/img/npr4.png',
+  addGlossToIcon: false,
+  slideleftSelector: '#jqt ul > li > a, #jqt ol > li > a',
+  startupScreen: 'media/img/npr_startup.png',
+  statusBar: 'black',
+  preloadImages: [
+    'themes/jqt/img/activeButton.png',	 	
+    'themes/jqt/img/back_button.png',
+    'themes/jqt/img/back_button_clicked.png',
+    'themes/jqt/img/button.png',
+    'themes/jqt/img/button_clicked.png',
+    'themes/jqt/img/loading.gif',
+    'bar_img/ajax.png',
+    'bar_img/animation.png',
+    'bar_img/demos.png',
+    'bar_img/events.png',
+    'bar_img/extensions.png',
+    'bar_img/iphone.png',
+    'bar_img/news.png',
+    'bar_img/video.png',
+    'bar_img/ajax@2x.png',
+    'bar_img/animation@2x.png',
+    'bar_img/demos@2x.png',
+    'bar_img/events@2x.png',
+    'bar_img/extensions@2x.png',
+    'bar_img/iphone@2x.png',
+    'bar_img/jqt@2x.png',
+    'bar_img/video@2x.png'
+  ],
+  useFastTouch: true
+});
+// Some sample Javascript functions:
+$(function(){
+// Show a swipe event on swipe test
+  $('#swipeme').swipe(function(evt, data){
+    $(this).html('You swiped <strong>' + data.direction + '/' + data.deltaX + ':' + data.deltaY + '</strong>!');
+    $(this).parent().after('<li>swiped!</li>')
+//iScroll integration
+    jQT.setPageHeight();
+  });
+  $('#tapme').tap(function(){
+    $(this).parent().after('<li>tapped!</li>');
+//iScroll integration
+    jQT.setPageHeight();
+  })
+  $('a[target="_blank"]').click(function(){
+    if(confirm('This link opens in a new window.')){
+      return true;
+    } else {
+      return false;
+    }
+  });
+// Page animation callback events
+  $('#pageevents').
+  bind('pageAnimationStart', function(e, info){
+    $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+  }).
+  bind('pageAnimationEnd', function(e, info){
+    $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+  });
+// Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+  $('#callback').bind('pageAnimationEnd', function(e, info){
+// Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+    if(!$(this).data('loaded')){
+// Append a placeholder in case the remote HTML takes its sweet time making it back
+// Then, overwrite the "Loading" placeholder text with the remote HTML
+      $(this).append($('<div>Loading</div>').load('ajax.html .info', function(){
+// Set the 'loaded' var to true so we know not to reload
+// the HTML next time the #callback div animation ends
+        $(this).parent().data('loaded', true);
+      }));
+    }
+  });
+// Orientation callback event
+  $('#jqt').bind('turn', function(e, data){
+    $('#orient').html('Orientation: ' + data.orientation);
+  });
+
+  $('#play_movie').bind('tap', function(){
+    $('#movie').get(0).play();
+    $(this).removeClass('active');
+  });
+
+  $('#video').bind('pageAnimationStart', function(e, info){
+    $('#movie').css('display', 'none');
+  }).bind('pageAnimationEnd', function(e, info){
+    if(info.direction == 'in'){
+      $('#movie').css('display', 'block');
+    }
+  })
+});
+
+</script>
+</head>
+<body>
+
+<!-- tabbar -->
+<div id="tabbar">
+	<div>
+    <ul>
+      <li>
+        <a href="#news" mask="bar_img/news.png" mask2x="bar_img/jqt@2x.png" animation="slideup">
+          <strong>News</strong>
+        </a>
+      </li>
+      <li>
+        <a href="#programs" mask="bar_img/iphone.png" mask2x="bar_img/iphone@2x.png">
+          <strong>Programs</strong>
+        </a>
+      </li>
+      <li>
+        <a href="#station" mask="bar_img/animation.png" mask2x="bar_img/animation@2x.png">
+          <strong>Station</strong>
+        </a>
+      </li>
+      <li>
+        <a href="#playlist" mask="bar_img/ajax.png" mask2x="bar_img/ajax@2x.png">
+          <strong>Playlist</strong>
+          <small class="badge right">12</small>
+        </a>
+      </li>
+      <li>
+        <a href="#more" mask="bar_img/events.png" mask2x="bar_img/events@2x.png">
+          <strong>More</strong>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--
+<div id="tabbar">
+	<div id="tabbar-pane">
+    <table>
+      <tr>
+        <td>
+          <a href="#about" mask="bar_img/jqt.png" mask2x="bar_img/jqt.png" animation="slideup">
+            <strong>About</strong>
+          </a>
+        </td>
+        <td>
+          <a href="#ui" mask="bar_img/iphone.png" mask2x="bar_img/iphone@2x.png">
+            <strong>UI Demos</strong>
+            <small class="badge right">5</small>
+          </a>
+        </td>
+        <td>
+          <a href="#animations" mask="bar_img/animation.png" mask2x="bar_img/animation@2x.png">
+            <strong>Animations</strong>
+            <small class="badge right">8</small>
+          </a>
+        </td>
+        <td>
+          <a href="#ajax" mask="bar_img/ajax.png" mask2x="bar_img/ajax@2x.png">
+            <strong>AJAX</strong>
+            <small class="badge right">4</small>
+          </a>
+        </td>
+        <td>
+          <a href="#callbacks" mask="bar_img/events.png" mask2x="bar_img/events@2x.png">
+            <strong>Events</strong>
+            <small class="badge right">4</small>
+          </a>
+        </td>
+        <td>
+          <a href="#extensions" mask="bar_img/extensions.png" mask2x="bar_img/extensions@2x.png">
+            <strong>Extensions</strong>
+            <small class="badge right">9</small>
+          </a>
+        </td>
+        <td>
+          <a href="#video" mask="bar_img/video.png" mask2x="bar_img/video@2x.png">
+            <strong>Videos</strong>
+            <small class="badge right">1</small>
+          </a>
+        </td>
+        <td>
+          <a href="#demos" mask="bar_img/demos.png" mask2x="bar_img/demos@2x.png">
+            <strong>Demos</strong>
+            <small class="badge right">2</small>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+-->
+
+<div id="jqt">
+
+<!-- NEWS -->
+  <div id="news" class="current">
+    <div class="toolbar">
+        <img src="themes/npr/img/npr_logo.gif" />
+        <h1>News</h1>
+    </div>
+    <div class="navbar">
+      <ul class="navbar">
+        <li class="selected"><a href="#news">Top Stories</a></li>
+        <li><a href="#topics" class="fade">Topics</a></li>
+        <li><a href="#newscast" class="fade">Newscast</a></li>
+          <li><a href="#"><img src="themes/npr/img/npr-magnify.png" /></a></li>
+    </div>  
+    <div class="s-scrollwrapper" momentum="false" vScrollbar="false">
+      <div>
+        <ul class="edgetoedge">
+          <li class="arrow"><a href="#">Other Story No. 1</a></li>
+          <li class="nprarrow"><a href="#edge">Joe DiMaggio</a></li>
+          <li class="nprarrow"><a href="#teen">Teens and Guns</a></li>
+          <li class="arrow"><a href="#libya">Libya Rebels</a></li>
+          <li class="arrow"><a href="#">Other Story No. 2</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Topics -->
+    <div id="topics">
+      <div class="toolbar">
+          <img src="themes/npr/img/npr_logo.gif" />
+          <h1>Topics</h1>
+      </div>
+      <div class="navbar">
+        <ul class="navbar">
+          <li><a href="#news" class="fade">Top Stories</a></li>
+          <li class="selected"><a href="#topics">Topics</a></li>
+          <li><a href="#newscast" class="fade">Newscast</a></li>
+          <li><a href="#"><img src="themes/npr/img/npr-magnify.png" /></a></li>
+      </div>  
+      <div class="s-scrollwrapper" momentum="false" vScrollbar="false">
+        <div>
+          <ul class="edgetoedge topics">
+            <li class="arrow"><a href="#">U.S.</a></li>
+            <li class="arrow"><a href="#">World</a></li>
+            <li class="arrow"><a href="#">Politics</a></li>
+            <li class="arrow"><a href="#">Business</a></li>
+            <li class="arrow"><a href="#">Music</a></li>
+            <li class="arrow"><a href="#">Science</a></li>
+            <li class="arrow"><a href="#">Health</a></li>
+            <li class="arrow"><a href="#">Technology</a></li>
+            <li class="arrow"><a href="#">Arts &amp; Life</a></li>
+            <li class="arrow"><a href="#">Books</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- NewsCast -->
+      <div id="newscast">
+        <div class="toolbar">
+            <img src="themes/npr/img/npr_logo.gif" />
+            <h1>Topics</h1>
+        </div>
+        <div class="navbar">
+          <ul class="navbar">
+            <li><a href="#news" class="fade">Top Stories</a></li>
+            <li><a href="#topics" class="fade">Topics</a></li>
+            <li class="selected"><a href="#newscast">Newscast</a></li>
+            <li><img src="themes/npr/img/npr-magnify.png" />
+        </div>  
+        <div class="s-scrollwrapper" momentum="false" vScrollbar="false">
+          <div>
+            <p style="margin:10px">Listen to our latest news update</p>
+          </div>
+        </div>
+      </div>
+  <!-- Joe DiMaggio Example -->
+    <div id="edge">
+      <div class="toolbar">
+        <h1></h1>
+        <a href="#" class="back"></a>
+      </div>
+      <div class="s-scrollwrapper">
+        <div>
+            <header>
+              <h2>Joe DiMaggio, A Star With The Power of Silence</h2>
+              <p>by Stefan Fatsis - March 26, 2011</p>
+              <p>All Things Considered - 4 min. 22 sec.</p>
+              <a href="#" style="margin: 10px;" id="play_movie" class="nprButton">Listen Now</a>
+            </header>
+            <article>
+              <p><img src="media/img/baseball-lg.jpg" class="thumbnail">For a couple of generations, Joe DiMaggio symbolized the word class. He was called the Yankee Clipper because he seemed to glide across the baseball field: stately, graceful and powerful.</p>
+              <div id="playback">
+                <audio id="movie" src="baseball.mp3" width="320" height="426" controls></audio>
+              </div>
+            </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teens Example -->
+      <div id="teen">
+        <div class="toolbar">
+          <h1></h1>
+          <a href="#" class="back"></a>
+        </div>
+        <div class="s-scrollwrapper">
+          <div>
+              <header>
+                <h2>Teens Exposed To Gun Violence Face Tough Road</h2>
+                <p>by Cheryl Corley - March 26, 2011</p>
+                <p>Weekend Edition Saturday - 5 min. 35 sec.</p>
+                <a href="#" style="margin: 10px;" id="play_movie" class="nprButton">Listen Now</a>
+              </header>
+              <article>
+                <p><img src="media/img/teen.jpg" class="thumbnail">
+                  <p>Chicago has the country's third-largest school system with more than 400,000 students including preschoolers. At least 15 of those students have died by gunfire this school year.</p>
+                  <p>According to the Chicago Police Department, last year a total of 70 children of school age, including dropouts and non-public school students, were killed by guns. More than 600 were wounded.</p>
+                  <p>Some experts say witnessing gun violence can lead to violent behavior that may perpetuate crime in at-risk neighborhoods.</p>
+                  <p>But the aftereffects for survivors of gun violence can be devastating.</p>
+                  <p>'I Was In Shock'</p>
+                  <p>Corshana Hatter is slim with dark, Shirley Temple-like curls. She's been in and out of foster homes since she was 7 years old and is currently on probation for getting into an argument with police. Hatter was in Roseland — a South Side Chicago neighborhood struggling with gangs and gun violence — when she was shot last July just a few weeks before her 17th birthday.</p>
+                <div id="playback">
+                  <audio id="movie" src="media/audio/teen.mp3" width="320" height="426" controls></audio>
+                </div>
+              </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Libya Example -->
+        <div id="libya">
+          <div class="toolbar">
+            <h1></h1>
+            <a href="#" class="back"></a>
+          </div>
+          <div class="s-scrollwrapper">
+            <div>
+                <header>
+                  <h2>Libyan Rebels Regain Key City After Airstrikes</h2>
+                  <p>by NPR Staff &amp; Wires - March 26, 2011</p>
+                </header>
+                <article>
+                  <p><img src="media/img/libya.jpg" class="thumbnail">
+                    <p>Libyan rebels regained control of the eastern gateway city of Ajdabiya on Saturday after international airstrikes crippled Moammar Gadhafi's forces, in the first major turnaround for an uprising that once appeared on the verge of defeat.</p>
+                    <p>Drivers honked in celebration and flew the tricolor rebel flag. Others in the city fired their guns into the air and danced on burned-out tanks that littered the road. Inside a building that had served as makeshift barracks for pro-Gadhafi forces, hastily discarded uniforms were piled on the floor.</p>
+                    <p>"Without the planes we couldn't have done this. Gadhafi's weapons are at a different level than ours," said Ahmed Faraj, 38, a rebel fighter from Ajdabiya. "With the help of the planes we are going to push onward to Tripoli, God willing."</p>
+                </article>
+            </div>
+          </div>
+        </div>
+
+</div>
+
+
+</div>
+</body>
+</html>

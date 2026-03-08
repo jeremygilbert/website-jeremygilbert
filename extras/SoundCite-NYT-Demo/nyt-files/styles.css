@@ -1,0 +1,34 @@
+/* $Id: styles.css 93629 2012-04-03 16:47:13Z fisherc $
+ * /css/0.1/screen/build/article/2.0/styles.css 
+ * (c)2006 - 2010 The New York Times Company 
+ */
+
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/global.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/shell.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/masthead.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/navigation.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/modules.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/mostpopular.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/layout.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/insideNYTimes.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/ads.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/macros.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/article.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/googleads.css); 
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/modules/articletools.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/modules/sharetools.css); /* legacy */
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/modules/sharetools/common.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/common/modules/readercomments.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/section/travel/modules/expedia.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/article/upnext.css);
+@import url(http://graphics8.nytimes.com/css/0.1/screen/article/abstract.css);
+
+/* US articles reference this build file directly */
+#navUs.selected {
+  margin-bottom: 28px;
+  padding-bottom: 0; /* This fix is for specific case of us/politics article pages, where due to absence of child Navigation, there is extra padding on selected li element of main Navigation */
+}
+
+#mostPopWidget,#MiddleRight,#adHeader,.adHeader,.singleAd,#Middle5,.cColumn-TextAdsBox,#facebookContainer,#adxSponLink_googleAds,.articleInline,.collectionHeader,.shareTools {
+	display: none !important;
+}

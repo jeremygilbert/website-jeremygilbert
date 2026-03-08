@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jeremygilbert
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jeremygilbert.com
+  * I am jeremygilbert (https://keybase.io/jeremygilbert) on keybase.
+  * I have a public key ASAg8S8fDTgziUiJnkeq1K8iQt7_u9HjIzOwGLkrN6tDrAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01203ba08c8d0bebbfb6a002a183d2fc86a3d2e60b1da10cbe2c438095653e86ed420a",
+      "host": "keybase.io",
+      "kid": "012020f12f1f0d38338948899e47aad4af2242deffbbd1e32333b018b92b37ab43ac0a",
+      "uid": "f5135aab4e9d2c50bd26aec45aadd719",
+      "username": "jeremygilbert"
+    },
+    "merkle_root": {
+      "ctime": 1581096561,
+      "hash": "90ee1b4d4db71d3c55ac9c2fd6732c351d166dd378323c59b1d800238a078d4a565405b036f31e509525469f8f4d7f2dbfdf91c669a333847c606c7eae46e157",
+      "hash_meta": "1c532c0aa6a74c2a5c5f31aba7ddb837a910ba57a463477b7ea1982e355f4821",
+      "seqno": 14526128
+    },
+    "service": {
+      "entropy": "NkT4Q4Fj8DDvRcl4kWjHXpTd",
+      "hostname": "jeremygilbert.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.2.0"
+  },
+  "ctime": 1581096520,
+  "expire_in": 504576000,
+  "prev": "e4d9602e84be17db6decc9784391cb9bd094e795748c89e529e498764e6ba37d",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgIPEvHw04M4lIiZ5HqtSvIkLe/7vR4yMzsBi5KzerQ6wKp3BheWxvYWTESpcCDMQg5NlgLoS+F9tt7Ml4Q5HLm9CU55V0jInlKeSYdk5ro33EIHoVHV+uNe+SQi1JECZpl5Ki5n1ZkMEHj6Ko3It66bh1AgHCo3NpZ8RADtM6U4D22KFlQHwQDtV4599umf2MssY57WE3TR1WalyTCB13c89RVQlIJXw9yp/erspyKkN3yj8s/uyD303sA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILgbBdOTqiBaZmFCIQgSP0haMTAhFGPh4FXyR8U9w6O9o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jeremygilbert
+
+==================================================================

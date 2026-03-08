@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+<!--
+        <script src="http://192.168.2.111:8080/target/target-script-min.js"></script>
+        <script src="http://jsconsole.com/remote.js?jstark"></script>
+-->
+        <title>TheFallGuy</title>
+        <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "themes/apple/theme.css";</style>
+        <script src="jqtouch/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                icon4: 'jqtouch4.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    'themes/apple/img/activeButton.png',
+                    'themes/apple/img/back_button.png',
+                    'themes/apple/img/back_button_clicked.png',
+                    'themes/apple/img/blueButton.png',
+                    'themes/apple/img/button.png',
+                    'themes/apple/img/button_clicked.png',
+                    'themes/apple/img/grayButton.png',
+                    'themes/apple/img/greenButton.png',
+                    'themes/apple/img/redButton.png',
+                    'themes/apple/img/whiteButton.png',
+                    'themes/apple/img/loading.gif'
+                    ]
+            });
+            // Some sample Javascript functions:
+            $(function(){
+                // Show a swipe event on swipe test
+                $('#swipeme').swipe(function(evt, data) {
+                    $(this).html('You swiped <strong>' + data.direction + '/' + data.deltaX +':' + data.deltaY + '</strong>!');
+                    $(this).parent().after('<li>swiped!</li>')
+
+                });
+                $('#tapme').tap(function(){
+                    $(this).parent().after('<li>tapped!</li>')
+                })
+                $('a[target="_blank"]').click(function() {
+                    if (confirm('This link opens in a new window.')) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                // Page animation callback events
+                $('#pageevents').
+                    bind('pageAnimationStart', function(e, info){ 
+                        $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+                    }).
+                    bind('pageAnimationEnd', function(e, info){
+                        $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+                    });
+                // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+                $('#callback').bind('pageAnimationEnd', function(e, info){
+                    // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+                    if (!$(this).data('loaded')) {
+                        // Append a placeholder in case the remote HTML takes its sweet time making it back
+                        // Then, overwrite the "Loading" placeholder text with the remote HTML
+                        $(this).append($('<div>Loading</div>').load('ajax.html .info', function() {        
+                            // Set the 'loaded' var to true so we know not to reload
+                            // the HTML next time the #callback div animation ends
+                            $(this).parent().data('loaded', true);  
+                        }));
+                    }
+                });
+                // Orientation callback event
+                $('#jqt').bind('turn', function(e, data){
+                    $('#orient').html('Orientation: ' + data.orientation);
+                });
+                $('#play_movie').bind('tap', function(){
+                    $('#movie').get(0).play();
+                    $(this).removeClass('active');
+                });
+                
+                $('#video').bind('pageAnimationStart', function(e, info){
+                    $('#movie').css('display', 'none');
+                }).bind('pageAnimationEnd', function(e, info){
+                    if (info.direction == 'in')
+                    {
+                        $('#movie').css('display', 'block');
+                    }
+                })
+            });
+        </script>
+        <style type="text/css" media="screen">
+            #jqt.fullscreen #home .info {
+                display: none;
+            }
+            div#jqt #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            div#jqt #about p {
+                margin-bottom: 8px;
+            }
+            div#jqt #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+/* This is the only stuff Dave added for style */
+			#intro {
+				margin-left: 20px;
+				margin-right: 5px;
+			}
+			#about {
+				color: white;
+			}
+        </style>
+    </head>
+    <body>
+        <div id="jqt">
+	
+	        <div id="home" class="current">
+                <div class="toolbar">
+                    <h1>The Fall Guy</h1>
+                    <a class="button flip" id="infoButton" href="#about">About</a>
+                </div>
+				<h2>The Unknown Stuntman</h2>
+				<p id="intro"><em>The Fall Guy</em> is an American action/adventure television program starring Lee Majors, Douglas Barr, and Heather Thomas. Majors and Barr are the only two actors to appear in all 112 episodes of the series. Thomas appeared in every episode except one during the 1981-82 season.</p>
+                <ul class="rounded">
+                    <li class="arrow"><a href="#cast">Cast</a></li>
+                    <li class="arrow"><a href="#characters">Characters</a></li>
+                    <li class="arrow"><a href="#truck">Truck</a></li>
+                    <li class="arrow"><a href="#video">TV Theme</a></li>
+                </ul>
+                <div class="info">
+                    <p>Add this page to your home screen to view the custom icon, startup screen, and full screen mode.</p>
+                </div>
+            </div>
+	
+            <div id="about">
+                    <p><img src="jqtouch.png" /></p>
+                    <p>This is a demo for a Society of News Design workshop. It uses content from the Wikipedia entry for "The Fall Guy," perhaps the greatest thing to happen in the 80s.</p>
+                    <p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
+            </div>
+
+            <div id="cast">
+                <div class="toolbar">
+                    <h1>Cast</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+                <ul class="edgetoedge">
+                    <li class="sep">B</li>
+                    <li><a href="#">Barr, <em>Douglas</em></a></li>
+                    <li class="sep">M</li>
+                    <li><a href="#">Majors, <em>Lee</em></a></li>
+                    <li class="sep">T</li>
+                    <li><a href="#">Thomas, <em>Heather</em></a></li>
+                </ul>
+            </div>
+
+            <div id="characters">
+                <div class="toolbar">
+                    <h1>Characters</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+                <ul class="plastic">
+                    <li>Colt Seavers</li>
+                    <li>Howie Munson</li>
+                    <li>Jody Banks</li>
+                </ul>
+            </div>
+
+            <div id="truck">
+                <div class="toolbar">
+                    <h1>Truck</h1>
+                    <a href="#" class="back">Back</a>
+                </div>
+                <h2>How awesome is Colt's truck?</h2>
+				<img src="https://chart.googleapis.com/chart?cht=p&chd=t:60,25,15&chs=320x200&chl=Amazing|Incredible|Beautiful" />
+            </div>
+
+            <div id="video">
+                <div class="toolbar">
+                    <h1>TV Theme</h1>
+                    <a class="back" href="#">Home</a>
+                </div>
+                <video id="movie" src="video/fallguy.mp4" poster="video/fallguy.jpg" width="320" height="320" controls></video>
+                
+                <a href="#" style="margin: 10px;" id="play_movie" class="whiteButton">Play Movie</a>
+            </div>
+
+        </div>
+    </body>
+</html>
