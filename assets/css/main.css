@@ -3192,7 +3192,7 @@ input, select, textarea {
 				width: 3.25rem;
 			}
 
-			ul.feature-icons li:nth-child(1), ul.feature-icons li:nth-child(2) {
+			ul.feature-icons li:nth-child(1) {
 				margin-top: 0;
 			}
 
